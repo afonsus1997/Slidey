@@ -79,6 +79,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SerialEmulator.cs" />
+    <Compile Include="SerialHandler.cs" />
     <Compile Include="Slider.cs" />
     <Compile Include="SliderEmulator.cs">
       <SubType>Form</SubType>
