@@ -97,7 +97,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(507, 497);
+            this.ClientSize = new System.Drawing.Size(575, 610);
             this.Controls.Add(this.metroProgressBar2);
             this.Controls.Add(this.TrackBar2);
             this.Controls.Add(this.metroProgressBar1);

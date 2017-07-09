@@ -5,11 +5,24 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
+
+
 namespace Slidey
 {
     class Slider
     {
+
+
+#region MODES
+            public const int MASTER = 0;
+            public const int ESPECIFIC = 1;
+#endregion
+
+
+
+
         public int currentValue = 0;
+        public int currentMode = MASTER;
         public string name;
 
         public Slider(string inName)
@@ -28,6 +41,24 @@ namespace Slidey
             }
         }
 
-        
+
+        public void changeVolume(int value)
+        {
+            if(currentMode == MASTER)
+            {
+                //change master Volume
+            }
+
+            else if(currentMode == ESPECIFIC)
+            {
+                //changeVolume of focused
+            }
+
+
+        }
+
+
+
+
     }
 }
