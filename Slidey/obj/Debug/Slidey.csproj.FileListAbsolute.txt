@@ -1,0 +1,13 @@
+F:\Documents\GitHub\Slidey\Slidey\obj\Debug\Slidey.csprojResolveAssemblyReference.cache
+F:\Documents\GitHub\Slidey\Slidey\obj\Debug\Slidey.Properties.Resources.resources
+F:\Documents\GitHub\Slidey\Slidey\obj\Debug\Slidey.SliderEmulator.resources
+F:\Documents\GitHub\Slidey\Slidey\obj\Debug\Slidey.csproj.GenerateResource.Cache
+F:\Documents\GitHub\Slidey\Slidey\bin\Debug\Slidey.exe.config
+F:\Documents\GitHub\Slidey\Slidey\bin\Debug\Slidey.exe
+F:\Documents\GitHub\Slidey\Slidey\bin\Debug\Slidey.pdb
+F:\Documents\GitHub\Slidey\Slidey\bin\Debug\MaterialSkin.dll
+F:\Documents\GitHub\Slidey\Slidey\bin\Debug\MetroFramework.dll
+F:\Documents\GitHub\Slidey\Slidey\bin\Debug\MetroFramework.Fonts.dll
+F:\Documents\GitHub\Slidey\Slidey\obj\Debug\Slidey.exe
+F:\Documents\GitHub\Slidey\Slidey\obj\Debug\Slidey.pdb
+F:\Documents\GitHub\Slidey\Slidey\obj\Debug\Slidey.Form1.resources
