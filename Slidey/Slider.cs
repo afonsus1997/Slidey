@@ -3,7 +3,7 @@ using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
 using System.Text;
-
+using VideoPlayerController;
 namespace Slidey
 {
     class Slider
@@ -85,8 +85,8 @@ namespace Slidey
             
             if (currentMode == MASTER)
             {
-
-                return 0;//Convert.ToInt32(defaultPlaybackDevice.Volume);
+                float volume = AudioManager.GetMasterVolume();
+                return Convert.ToInt32(volume);//Convert.ToInt32(defaultPlaybackDevice.Volume);
             }
 
             else if (currentMode == ESPECIFIC)

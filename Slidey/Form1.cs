@@ -146,7 +146,7 @@ namespace Slidey
         {
             atualizaListaCOMs();
             knob1.Location = new Point(VolumeDraw.knob1posVer, VolumeDraw.changeKnobPos(Slider1.getVolume()));
-            //knob2.Location = new Point(VolumeDraw.knob2posVer, VolumeDraw.changeKnobPos(Slider2.getVolume()));
+            knob2.Location = new Point(VolumeDraw.knob2posVer, VolumeDraw.changeKnobPos(Slider2.getVolume()));
 
 
         }
