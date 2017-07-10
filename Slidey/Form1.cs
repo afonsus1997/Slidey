@@ -28,6 +28,7 @@ namespace Slidey
         public static extern IntPtr GetWindowThreadProcessId(IntPtr hWnd, out uint ProcessId);
         #endregion
 
+        #region SERIAL COMM
         string rxString;
 
         private void atualizaListaCOMs()
@@ -72,6 +73,59 @@ namespace Slidey
             comboBox1.SelectedIndex = 0;
         }
 
+        private void connectButton_Click(object sender, EventArgs e)
+        {
+            if (serialPort1.IsOpen == false)
+            {
+                try
+                {
+                    serialPort1.PortName = comboBox1.Items[comboBox1.SelectedIndex].ToString();
+                    serialPort1.Open();
+                    serialPort1.DataReceived += serialPort1_DataReceived;
+                }
+                catch
+                {
+                    return;
+
+                }
+                if (serialPort1.IsOpen)
+                {
+                    connectButton.Text = "Desconectar";
+                    comboBox1.Enabled = false;
+
+                }
+            }
+            else
+            {
+
+                try
+                {
+                    serialPort1.Close();
+                    comboBox1.Enabled = true;
+                    connectButton.Text = "Conectar";
+                }
+                catch
+                {
+                    return;
+                }
+
+            }
+        }
+
+        private void serialPort1_DataReceived(object sender, SerialDataReceivedEventArgs e)
+        {
+            rxString = serialPort1.ReadExisting();              //le o dado disponível na serial
+            this.Invoke(new EventHandler(trataDadoRecebido));   //chama outra thread para escrever o dado no text box
+        }
+
+        private void trataDadoRecebido(object sender, EventArgs e)
+        {
+            SerialHandler.RXstring = rxString;
+            serialLabel.Text = rxString;
+        }
+
+
+#endregion
 
         public Form1()
         {
@@ -88,6 +142,8 @@ namespace Slidey
             atualizaListaCOMs();
             serialTextConverter();
             
+            
+
         }
 
         private string GetActiveWindowTitle()
@@ -119,7 +175,7 @@ namespace Slidey
                 uint pid;
                 GetWindowThreadProcessId(hwnd, out pid);
                 Process p = Process.GetProcessById((int)pid);
-                Console.WriteLine(p.MainWindowTitle);
+                //Console.WriteLine(p.MainWindowTitle);
                 int pid1 = p.Id;
                 //appname = "Spotify";
                 VolumeHandler.SetApplicationVolume(pid1, value);
@@ -176,44 +232,7 @@ namespace Slidey
             metroStyleManager1.Style = MetroColorStyle.Orange;
         }
 
-        private void connectButton_Click(object sender, EventArgs e)
-        {
-            if (serialPort1.IsOpen == false)
-            {
-                try
-                {
-                    serialPort1.PortName = comboBox1.Items[comboBox1.SelectedIndex].ToString();
-                    serialPort1.Open();
-
-                }
-                catch
-                {
-                    return;
-
-                }
-                if (serialPort1.IsOpen)
-                {
-                    connectButton.Text = "Desconectar";
-                    comboBox1.Enabled = false;
-
-                }
-            }
-            else
-            {
-
-                try
-                {
-                    serialPort1.Close();
-                    comboBox1.Enabled = true;
-                    connectButton.Text = "Conectar";
-                }
-                catch
-                {
-                    return;
-                }
-
-            }
-        }
+       
 
 
 
@@ -225,19 +244,7 @@ namespace Slidey
                 serialPort1.Close();         //fecha a porta
         }
 
-        private void serialPort1_DataReceived(object sender, SerialDataReceivedEventArgs e)
-        {
-            rxString = serialPort1.ReadExisting();              //le o dado disponível na serial
-            this.Invoke(new EventHandler(trataDadoRecebido));   //chama outra thread para escrever o dado no text box
-        }
-
-        private void trataDadoRecebido(object sender, EventArgs e)
-        {
-            SerialHandler.RXstring = rxString;
-            serialLabel.Text = rxString;
-        }
-
-
+       
 
 
 
