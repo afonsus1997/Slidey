@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.metroTabControl1 = new MetroFramework.Controls.MetroTabControl();
             this.Start = new MetroFramework.Controls.MetroTabPage();
             this.Serial = new MetroFramework.Controls.MetroTabPage();
@@ -46,13 +47,16 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.comboS2 = new MetroFramework.Controls.MetroComboBox();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.metroTabControl1.SuspendLayout();
+            this.Start.SuspendLayout();
             this.Serial.SuspendLayout();
             this.Debug.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.metroStyleManager1)).BeginInit();
             this.Modes.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.SuspendLayout();
             // 
             // metroTabControl1
@@ -64,12 +68,13 @@
             this.metroTabControl1.Controls.Add(this.About);
             this.metroTabControl1.Location = new System.Drawing.Point(23, 63);
             this.metroTabControl1.Name = "metroTabControl1";
-            this.metroTabControl1.SelectedIndex = 1;
+            this.metroTabControl1.SelectedIndex = 0;
             this.metroTabControl1.Size = new System.Drawing.Size(665, 373);
             this.metroTabControl1.TabIndex = 0;
             // 
             // Start
             // 
+            this.Start.Controls.Add(this.pictureBox3);
             this.Start.HorizontalScrollbarBarColor = true;
             this.Start.Location = new System.Drawing.Point(4, 35);
             this.Start.Name = "Start";
@@ -180,7 +185,7 @@
             this.comboS1.Items.AddRange(new object[] {
             "Master",
             "Current App"});
-            this.comboS1.Location = new System.Drawing.Point(66, 104);
+            this.comboS1.Location = new System.Drawing.Point(184, 271);
             this.comboS1.Name = "comboS1";
             this.comboS1.Size = new System.Drawing.Size(121, 29);
             this.comboS1.TabIndex = 2;
@@ -189,9 +194,9 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = global::Slidey.Properties.Resources.fader;
-            this.pictureBox1.Location = new System.Drawing.Point(217, 21);
+            this.pictureBox1.Location = new System.Drawing.Point(233, 21);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(91, 285);
+            this.pictureBox1.Size = new System.Drawing.Size(72, 227);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 3;
             this.pictureBox1.TabStop = false;
@@ -201,7 +206,7 @@
             this.pictureBox2.Image = global::Slidey.Properties.Resources.fader;
             this.pictureBox2.Location = new System.Drawing.Point(334, 21);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(91, 285);
+            this.pictureBox2.Size = new System.Drawing.Size(72, 227);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox2.TabIndex = 4;
             this.pictureBox2.TabStop = false;
@@ -216,11 +221,21 @@
             this.comboS2.Items.AddRange(new object[] {
             "Master",
             "Current App"});
-            this.comboS2.Location = new System.Drawing.Point(452, 104);
+            this.comboS2.Location = new System.Drawing.Point(334, 271);
             this.comboS2.Name = "comboS2";
             this.comboS2.Size = new System.Drawing.Size(121, 29);
             this.comboS2.TabIndex = 2;
             this.comboS2.SelectedIndexChanged += new System.EventHandler(this.comboS2_SelectedIndexChanged);
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
+            this.pictureBox3.Location = new System.Drawing.Point(21, 24);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(619, 290);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox3.TabIndex = 2;
+            this.pictureBox3.TabStop = false;
             // 
             // Form1
             // 
@@ -234,6 +249,7 @@
             this.Deactivate += new System.EventHandler(this.Form1_Deactivate);
             this.Leave += new System.EventHandler(this.Form1_Leave);
             this.metroTabControl1.ResumeLayout(false);
+            this.Start.ResumeLayout(false);
             this.Serial.ResumeLayout(false);
             this.Serial.PerformLayout();
             this.Debug.ResumeLayout(false);
@@ -242,6 +258,7 @@
             this.Modes.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -265,6 +282,7 @@
         private MetroFramework.Controls.MetroComboBox comboS1;
         private System.Windows.Forms.PictureBox pictureBox2;
         private MetroFramework.Controls.MetroComboBox comboS2;
+        private System.Windows.Forms.PictureBox pictureBox3;
     }
 }
 

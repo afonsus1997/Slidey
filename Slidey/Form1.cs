@@ -127,9 +127,6 @@ namespace Slidey
         {
             InitializeComponent();
             this.StyleManager = metroStyleManager1;
-            //metroStyleManager1.Style = 
-            Form Slider = new SliderEmulator();
-            //Slider.Show();
             timer1.Start();
         }
 

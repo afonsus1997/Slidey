@@ -61,8 +61,6 @@ namespace Slidey
         {
             if(value != currentValue)
             {
-                
-                SerialEmulator.fromSliderToProgram = name + " " + value.ToString();
                 currentValue = value;
             }
         }
