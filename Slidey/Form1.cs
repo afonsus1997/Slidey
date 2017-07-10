@@ -129,7 +129,9 @@ namespace Slidey
             this.StyleManager = metroStyleManager1;
             timer1.Start();
             body1.Location = new Point(VolumeDraw.Hpos1, VolumeDraw.Vpos1);
-            
+            MaximizeBox = false;
+
+
 
         }
 
