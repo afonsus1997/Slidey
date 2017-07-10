@@ -1,13 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using AudioSwitcher.AudioApi.CoreAudio;
+using System;
 using System.Diagnostics;
-using System.Linq;
-using System.Reflection;
 using System.Runtime.InteropServices;
 using System.Text;
-using System.Threading.Tasks;
-
-
 
 namespace Slidey
 {
@@ -43,6 +38,8 @@ namespace Slidey
             return null;
         }
 
+        
+
         #endregion
 
 
@@ -65,6 +62,52 @@ namespace Slidey
             }
         }
 
+        int getCurrentPid()
+        {
+            String appname = GetActiveWindowTitle();
+            IntPtr hwnd = GetForegroundWindow();
+            uint pid;
+            GetWindowThreadProcessId(hwnd, out pid);
+            Process p = Process.GetProcessById((int)pid);
+            //Console.WriteLine(p.MainWindowTitle);
+            return p.Id;
+        }
+
+
+
+         //CoreAudioDevice defaultPlaybackDevice = new CoreAudioController().DefaultPlaybackDevice;
+
+
+        public int getVolume()
+        {
+
+            float? value;
+            
+            if (currentMode == MASTER)
+            {
+
+                return 0;//Convert.ToInt32(defaultPlaybackDevice.Volume);
+            }
+
+            else if (currentMode == ESPECIFIC)
+            {
+                //changeVolume of focused
+                String appname = GetActiveWindowTitle();
+                IntPtr hwnd = GetForegroundWindow();
+                uint pid;
+                GetWindowThreadProcessId(hwnd, out pid);
+                Process p = Process.GetProcessById((int)pid);
+                //Console.WriteLine(p.MainWindowTitle);
+                int pid1 = p.Id;
+                //appname = "Spotify";
+                
+                value = VolumeHandler.GetApplicationVolume(pid1);
+                return Convert.ToInt32(value);
+
+
+            }
+            return 0;
+        }
 
         public void changeVolume(int value)
         {

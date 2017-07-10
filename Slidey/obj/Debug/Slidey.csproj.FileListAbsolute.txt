@@ -10,3 +10,7 @@ F:\Documents\GitHub\Slidey\Slidey\bin\Debug\MetroFramework.Fonts.dll
 F:\Documents\GitHub\Slidey\Slidey\obj\Debug\Slidey.exe
 F:\Documents\GitHub\Slidey\Slidey\obj\Debug\Slidey.pdb
 F:\Documents\GitHub\Slidey\Slidey\obj\Debug\Slidey.Form1.resources
+F:\Documents\GitHub\Slidey\Slidey\bin\Debug\AudioSwitcher.AudioApi.CoreAudio.dll
+F:\Documents\GitHub\Slidey\Slidey\bin\Debug\AudioSwitcher.AudioApi.dll
+F:\Documents\GitHub\Slidey\Slidey\bin\Debug\NAudio.dll
+F:\Documents\GitHub\Slidey\Slidey\bin\Debug\NAudio.xml

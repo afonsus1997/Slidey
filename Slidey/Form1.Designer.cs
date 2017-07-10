@@ -32,9 +32,16 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.metroTabControl1 = new MetroFramework.Controls.MetroTabControl();
             this.Start = new MetroFramework.Controls.MetroTabPage();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.Sliders = new MetroFramework.Controls.MetroTabPage();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.comboS2 = new MetroFramework.Controls.MetroComboBox();
             this.comboS1 = new MetroFramework.Controls.MetroComboBox();
+            this.knob2 = new System.Windows.Forms.PictureBox();
+            this.knob1 = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.body1 = new System.Windows.Forms.PictureBox();
             this.Serial = new MetroFramework.Controls.MetroTabPage();
             this.serialLabel = new MetroFramework.Controls.MetroLabel();
             this.connectButton = new MetroFramework.Controls.MetroButton();
@@ -42,47 +49,40 @@
             this.Debug = new MetroFramework.Controls.MetroTabPage();
             this.fromSerial = new System.Windows.Forms.Label();
             this.About = new MetroFramework.Controls.MetroTabPage();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.Buttons = new MetroFramework.Controls.MetroTabPage();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.metroStyleManager1 = new MetroFramework.Components.MetroStyleManager(this.components);
             this.serialPort1 = new System.IO.Ports.SerialPort(this.components);
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.knob2 = new System.Windows.Forms.PictureBox();
-            this.knob1 = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.body1 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.Buttons = new MetroFramework.Controls.MetroTabPage();
             this.metroTabControl1.SuspendLayout();
             this.Start.SuspendLayout();
-            this.Sliders.SuspendLayout();
-            this.Serial.SuspendLayout();
-            this.Debug.SuspendLayout();
-            this.About.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.metroStyleManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            this.Sliders.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.knob2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.knob1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.body1)).BeginInit();
+            this.Serial.SuspendLayout();
+            this.Debug.SuspendLayout();
+            this.About.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.metroStyleManager1)).BeginInit();
             this.SuspendLayout();
             // 
             // metroTabControl1
             // 
             this.metroTabControl1.Controls.Add(this.Start);
             this.metroTabControl1.Controls.Add(this.Sliders);
-            this.metroTabControl1.Controls.Add(this.Buttons);
             this.metroTabControl1.Controls.Add(this.Serial);
             this.metroTabControl1.Controls.Add(this.Debug);
             this.metroTabControl1.Controls.Add(this.About);
+            this.metroTabControl1.Controls.Add(this.Buttons);
             this.metroTabControl1.Location = new System.Drawing.Point(23, 63);
             this.metroTabControl1.Name = "metroTabControl1";
-            this.metroTabControl1.SelectedIndex = 0;
+            this.metroTabControl1.SelectedIndex = 1;
             this.metroTabControl1.Size = new System.Drawing.Size(665, 373);
             this.metroTabControl1.TabIndex = 0;
             // 
@@ -96,6 +96,16 @@
             this.Start.TabIndex = 0;
             this.Start.Text = "Start";
             this.Start.VerticalScrollbarBarColor = true;
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
+            this.pictureBox3.Location = new System.Drawing.Point(21, 24);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(619, 290);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox3.TabIndex = 2;
+            this.pictureBox3.TabStop = false;
             // 
             // Sliders
             // 
@@ -114,6 +124,28 @@
             this.Sliders.TabIndex = 4;
             this.Sliders.Text = "Modes";
             this.Sliders.VerticalScrollbarBarColor = true;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.White;
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(431, 22);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(229, 54);
+            this.label2.TabIndex = 5;
+            this.label2.Text = "Right Slider";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.White;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(3, 22);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(201, 54);
+            this.label1.TabIndex = 5;
+            this.label1.Text = "Left Slider";
             // 
             // comboS2
             // 
@@ -143,6 +175,46 @@
             this.comboS1.Size = new System.Drawing.Size(121, 29);
             this.comboS1.TabIndex = 2;
             this.comboS1.SelectedIndexChanged += new System.EventHandler(this.comboS1_SelectedIndexChanged);
+            // 
+            // knob2
+            // 
+            this.knob2.Image = global::Slidey.Properties.Resources.faderknob;
+            this.knob2.Location = new System.Drawing.Point(353, 234);
+            this.knob2.Name = "knob2";
+            this.knob2.Size = new System.Drawing.Size(51, 80);
+            this.knob2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.knob2.TabIndex = 4;
+            this.knob2.TabStop = false;
+            // 
+            // knob1
+            // 
+            this.knob1.Image = global::Slidey.Properties.Resources.faderknob;
+            this.knob1.Location = new System.Drawing.Point(248, 234);
+            this.knob1.Name = "knob1";
+            this.knob1.Size = new System.Drawing.Size(51, 80);
+            this.knob1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.knob1.TabIndex = 4;
+            this.knob1.TabStop = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::Slidey.Properties.Resources.faderbody;
+            this.pictureBox1.Location = new System.Drawing.Point(325, 22);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(100, 309);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 3;
+            this.pictureBox1.TabStop = false;
+            // 
+            // body1
+            // 
+            this.body1.Image = global::Slidey.Properties.Resources.faderbody;
+            this.body1.Location = new System.Drawing.Point(219, 22);
+            this.body1.Name = "body1";
+            this.body1.Size = new System.Drawing.Size(100, 309);
+            this.body1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.body1.TabIndex = 3;
+            this.body1.TabStop = false;
             // 
             // Serial
             // 
@@ -219,48 +291,16 @@
             this.About.Text = "About";
             this.About.VerticalScrollbarBarColor = true;
             // 
-            // timer1
+            // label5
             // 
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
-            // metroStyleManager1
-            // 
-            this.metroStyleManager1.Owner = this;
-            this.metroStyleManager1.Style = MetroFramework.MetroColorStyle.Orange;
-            this.metroStyleManager1.Theme = MetroFramework.MetroThemeStyle.Light;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.White;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(3, 22);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(201, 54);
-            this.label1.TabIndex = 5;
-            this.label1.Text = "Left Slider";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.White;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(431, 22);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(229, 54);
-            this.label2.TabIndex = 5;
-            this.label2.Text = "Right Slider";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.White;
-            this.label3.Font = new System.Drawing.Font("Segoe UI", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(310, 15);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(154, 65);
-            this.label3.TabIndex = 3;
-            this.label3.Text = "Slidey";
+            this.label5.AutoSize = true;
+            this.label5.BackColor = System.Drawing.Color.White;
+            this.label5.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(318, 114);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(145, 17);
+            this.label5.TabIndex = 5;
+            this.label5.Text = "©Afonso Muralha 2017";
             // 
             // label4
             // 
@@ -273,66 +313,16 @@
             this.label4.TabIndex = 4;
             this.label4.Text = "Slider Interface";
             // 
-            // label5
+            // label3
             // 
-            this.label5.AutoSize = true;
-            this.label5.BackColor = System.Drawing.Color.White;
-            this.label5.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(318, 114);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(145, 17);
-            this.label5.TabIndex = 5;
-            this.label5.Text = "©Afonso Muralha 2017";
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(21, 24);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(619, 290);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox3.TabIndex = 2;
-            this.pictureBox3.TabStop = false;
-            // 
-            // knob2
-            // 
-            this.knob2.Image = global::Slidey.Properties.Resources.faderknob;
-            this.knob2.Location = new System.Drawing.Point(353, 234);
-            this.knob2.Name = "knob2";
-            this.knob2.Size = new System.Drawing.Size(51, 80);
-            this.knob2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.knob2.TabIndex = 4;
-            this.knob2.TabStop = false;
-            // 
-            // knob1
-            // 
-            this.knob1.Image = global::Slidey.Properties.Resources.faderknob;
-            this.knob1.Location = new System.Drawing.Point(248, 234);
-            this.knob1.Name = "knob1";
-            this.knob1.Size = new System.Drawing.Size(51, 80);
-            this.knob1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.knob1.TabIndex = 4;
-            this.knob1.TabStop = false;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::Slidey.Properties.Resources.faderbody;
-            this.pictureBox1.Location = new System.Drawing.Point(325, 22);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(100, 309);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 3;
-            this.pictureBox1.TabStop = false;
-            // 
-            // body1
-            // 
-            this.body1.Image = global::Slidey.Properties.Resources.faderbody;
-            this.body1.Location = new System.Drawing.Point(219, 22);
-            this.body1.Name = "body1";
-            this.body1.Size = new System.Drawing.Size(100, 309);
-            this.body1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.body1.TabIndex = 3;
-            this.body1.TabStop = false;
+            this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.White;
+            this.label3.Font = new System.Drawing.Font("Segoe UI", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(310, 15);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(154, 65);
+            this.label3.TabIndex = 3;
+            this.label3.Text = "Slidey";
             // 
             // pictureBox2
             // 
@@ -354,6 +344,17 @@
             this.Buttons.Text = "Buttons";
             this.Buttons.VerticalScrollbarBarColor = true;
             // 
+            // timer1
+            // 
+            this.timer1.Interval = 50;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // metroStyleManager1
+            // 
+            this.metroStyleManager1.Owner = this;
+            this.metroStyleManager1.Style = MetroFramework.MetroColorStyle.Orange;
+            this.metroStyleManager1.Theme = MetroFramework.MetroThemeStyle.Light;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -369,21 +370,21 @@
             this.Leave += new System.EventHandler(this.Form1_Leave);
             this.metroTabControl1.ResumeLayout(false);
             this.Start.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.Sliders.ResumeLayout(false);
             this.Sliders.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.knob2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.knob1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.body1)).EndInit();
             this.Serial.ResumeLayout(false);
             this.Serial.PerformLayout();
             this.Debug.ResumeLayout(false);
             this.Debug.PerformLayout();
             this.About.ResumeLayout(false);
             this.About.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.metroStyleManager1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.knob2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.knob1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.body1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.metroStyleManager1)).EndInit();
             this.ResumeLayout(false);
 
         }

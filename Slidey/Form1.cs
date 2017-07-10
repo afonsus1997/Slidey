@@ -11,6 +11,7 @@ using MetroFramework;
 using System.Runtime.InteropServices;
 using System.Diagnostics;
 using System.IO.Ports;
+using System.Threading;
 
 namespace Slidey
 {
@@ -19,7 +20,7 @@ namespace Slidey
         Slider Slider1 = new Slider("S1");
         Slider Slider2 = new Slider("S2");
 
-        
+
 
         #region SERIAL COMM
         string rxString;
@@ -119,9 +120,9 @@ namespace Slidey
         }
 
 
-#endregion
+        #endregion
 
-        
+
 
         public Form1()
         {
@@ -131,18 +132,28 @@ namespace Slidey
             body1.Location = new Point(VolumeDraw.Hpos1, VolumeDraw.Vpos1);
             MaximizeBox = false;
 
+            
+
+            
 
 
         }
+        
+
+
 
         private void timer1_Tick(object sender, EventArgs e)
         {
             atualizaListaCOMs();
+            knob1.Location = new Point(VolumeDraw.knob1posVer, VolumeDraw.changeKnobPos(Slider1.getVolume()));
+            //knob2.Location = new Point(VolumeDraw.knob2posVer, VolumeDraw.changeKnobPos(Slider2.getVolume()));
+
 
         }
 
 
-        
+
+
 
 
 
@@ -177,7 +188,7 @@ namespace Slidey
 
         private void comboS1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if(comboS1.Text == "Master") { Slider1.currentMode = 0; }
+            if (comboS1.Text == "Master") { Slider1.currentMode = 0; }
             else if (comboS1.Text == "Current App") { Slider1.currentMode = 1; }
         }
 
@@ -215,12 +226,6 @@ namespace Slidey
             catch { }
         }
 
-
         
-
-
-
-
-
     }
 }

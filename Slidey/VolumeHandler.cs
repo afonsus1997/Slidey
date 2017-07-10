@@ -13,6 +13,8 @@ namespace Slidey
 
         
 
+
+
         public static float? GetApplicationVolume(int pid)
         {
             ISimpleAudioVolume volume = GetVolumeObject(pid);
@@ -24,6 +26,9 @@ namespace Slidey
             Marshal.ReleaseComObject(volume);
             return level * 100;
         }
+
+        
+
 
         public static bool? GetApplicationMute(int pid)
         {

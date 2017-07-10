@@ -1,0 +1,5 @@
+F:\Documents\GitHub\Slidey\CoreAudioApi\bin\Debug\CoreAudioApi.dll
+F:\Documents\GitHub\Slidey\CoreAudioApi\bin\Debug\CoreAudioApi.pdb
+F:\Documents\GitHub\Slidey\CoreAudioApi\obj\Debug\CoreAudioApi.csprojResolveAssemblyReference.cache
+F:\Documents\GitHub\Slidey\CoreAudioApi\obj\Debug\CoreAudioApi.dll
+F:\Documents\GitHub\Slidey\CoreAudioApi\obj\Debug\CoreAudioApi.pdb
