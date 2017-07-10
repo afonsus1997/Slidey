@@ -68,7 +68,7 @@
             this.metroTabControl1.Controls.Add(this.About);
             this.metroTabControl1.Location = new System.Drawing.Point(23, 63);
             this.metroTabControl1.Name = "metroTabControl1";
-            this.metroTabControl1.SelectedIndex = 0;
+            this.metroTabControl1.SelectedIndex = 1;
             this.metroTabControl1.Size = new System.Drawing.Size(665, 373);
             this.metroTabControl1.TabIndex = 0;
             // 
@@ -185,7 +185,7 @@
             this.comboS1.Items.AddRange(new object[] {
             "Master",
             "Current App"});
-            this.comboS1.Location = new System.Drawing.Point(184, 271);
+            this.comboS1.Location = new System.Drawing.Point(92, 112);
             this.comboS1.Name = "comboS1";
             this.comboS1.Size = new System.Drawing.Size(121, 29);
             this.comboS1.TabIndex = 2;
@@ -221,7 +221,7 @@
             this.comboS2.Items.AddRange(new object[] {
             "Master",
             "Current App"});
-            this.comboS2.Location = new System.Drawing.Point(334, 271);
+            this.comboS2.Location = new System.Drawing.Point(421, 112);
             this.comboS2.Name = "comboS2";
             this.comboS2.Size = new System.Drawing.Size(121, 29);
             this.comboS2.TabIndex = 2;
