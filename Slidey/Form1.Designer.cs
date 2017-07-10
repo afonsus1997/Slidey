@@ -32,24 +32,33 @@
             this.metroTabControl1 = new MetroFramework.Controls.MetroTabControl();
             this.Start = new MetroFramework.Controls.MetroTabPage();
             this.Serial = new MetroFramework.Controls.MetroTabPage();
+            this.serialLabel = new MetroFramework.Controls.MetroLabel();
+            this.connectButton = new MetroFramework.Controls.MetroButton();
+            this.comboBox1 = new MetroFramework.Controls.MetroComboBox();
             this.Debug = new MetroFramework.Controls.MetroTabPage();
             this.fromSerial = new System.Windows.Forms.Label();
             this.About = new MetroFramework.Controls.MetroTabPage();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.metroStyleManager1 = new MetroFramework.Components.MetroStyleManager(this.components);
-            this.comboBox1 = new MetroFramework.Controls.MetroComboBox();
-            this.connectButton = new MetroFramework.Controls.MetroButton();
             this.serialPort1 = new System.IO.Ports.SerialPort(this.components);
-            this.serialLabel = new MetroFramework.Controls.MetroLabel();
+            this.Modes = new MetroFramework.Controls.MetroTabPage();
+            this.comboS1 = new MetroFramework.Controls.MetroComboBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.comboS2 = new MetroFramework.Controls.MetroComboBox();
             this.metroTabControl1.SuspendLayout();
             this.Serial.SuspendLayout();
             this.Debug.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.metroStyleManager1)).BeginInit();
+            this.Modes.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // metroTabControl1
             // 
             this.metroTabControl1.Controls.Add(this.Start);
+            this.metroTabControl1.Controls.Add(this.Modes);
             this.metroTabControl1.Controls.Add(this.Serial);
             this.metroTabControl1.Controls.Add(this.Debug);
             this.metroTabControl1.Controls.Add(this.About);
@@ -81,6 +90,33 @@
             this.Serial.TabIndex = 1;
             this.Serial.Text = "Serial";
             this.Serial.VerticalScrollbarBarColor = true;
+            // 
+            // serialLabel
+            // 
+            this.serialLabel.AutoSize = true;
+            this.serialLabel.Location = new System.Drawing.Point(283, 35);
+            this.serialLabel.Name = "serialLabel";
+            this.serialLabel.Size = new System.Drawing.Size(55, 19);
+            this.serialLabel.TabIndex = 4;
+            this.serialLabel.Text = "rx serial";
+            // 
+            // connectButton
+            // 
+            this.connectButton.Location = new System.Drawing.Point(3, 35);
+            this.connectButton.Name = "connectButton";
+            this.connectButton.Size = new System.Drawing.Size(113, 29);
+            this.connectButton.TabIndex = 3;
+            this.connectButton.Text = "Connect";
+            this.connectButton.Click += new System.EventHandler(this.connectButton_Click);
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.ItemHeight = 23;
+            this.comboBox1.Location = new System.Drawing.Point(141, 35);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(121, 29);
+            this.comboBox1.TabIndex = 2;
             // 
             // Debug
             // 
@@ -123,32 +159,68 @@
             this.metroStyleManager1.Style = MetroFramework.MetroColorStyle.Orange;
             this.metroStyleManager1.Theme = MetroFramework.MetroThemeStyle.Light;
             // 
-            // comboBox1
+            // Modes
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.ItemHeight = 23;
-            this.comboBox1.Location = new System.Drawing.Point(141, 35);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 29);
-            this.comboBox1.TabIndex = 2;
+            this.Modes.Controls.Add(this.pictureBox2);
+            this.Modes.Controls.Add(this.pictureBox1);
+            this.Modes.Controls.Add(this.comboS2);
+            this.Modes.Controls.Add(this.comboS1);
+            this.Modes.HorizontalScrollbarBarColor = true;
+            this.Modes.Location = new System.Drawing.Point(4, 35);
+            this.Modes.Name = "Modes";
+            this.Modes.Size = new System.Drawing.Size(657, 334);
+            this.Modes.TabIndex = 4;
+            this.Modes.Text = "Modes";
+            this.Modes.VerticalScrollbarBarColor = true;
             // 
-            // connectButton
+            // comboS1
             // 
-            this.connectButton.Location = new System.Drawing.Point(3, 35);
-            this.connectButton.Name = "connectButton";
-            this.connectButton.Size = new System.Drawing.Size(113, 29);
-            this.connectButton.TabIndex = 3;
-            this.connectButton.Text = "Connect";
-            this.connectButton.Click += new System.EventHandler(this.connectButton_Click);
+            this.comboS1.FormattingEnabled = true;
+            this.comboS1.ItemHeight = 23;
+            this.comboS1.Items.AddRange(new object[] {
+            "Master",
+            "Current App"});
+            this.comboS1.Location = new System.Drawing.Point(66, 104);
+            this.comboS1.Name = "comboS1";
+            this.comboS1.Size = new System.Drawing.Size(121, 29);
+            this.comboS1.TabIndex = 2;
+            this.comboS1.SelectedIndexChanged += new System.EventHandler(this.comboS1_SelectedIndexChanged);
             // 
-            // serialLabel
+            // pictureBox1
             // 
-            this.serialLabel.AutoSize = true;
-            this.serialLabel.Location = new System.Drawing.Point(283, 35);
-            this.serialLabel.Name = "serialLabel";
-            this.serialLabel.Size = new System.Drawing.Size(55, 19);
-            this.serialLabel.TabIndex = 4;
-            this.serialLabel.Text = "rx serial";
+            this.pictureBox1.Image = global::Slidey.Properties.Resources.fader;
+            this.pictureBox1.Location = new System.Drawing.Point(217, 21);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(91, 285);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 3;
+            this.pictureBox1.TabStop = false;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = global::Slidey.Properties.Resources.fader;
+            this.pictureBox2.Location = new System.Drawing.Point(334, 21);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(91, 285);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 4;
+            this.pictureBox2.TabStop = false;
+            // 
+            // comboS2
+            // 
+            this.comboS2.AutoCompleteCustomSource.AddRange(new string[] {
+            "Master",
+            "Current App"});
+            this.comboS2.FormattingEnabled = true;
+            this.comboS2.ItemHeight = 23;
+            this.comboS2.Items.AddRange(new object[] {
+            "Master",
+            "Current App"});
+            this.comboS2.Location = new System.Drawing.Point(452, 104);
+            this.comboS2.Name = "comboS2";
+            this.comboS2.Size = new System.Drawing.Size(121, 29);
+            this.comboS2.TabIndex = 2;
+            this.comboS2.SelectedIndexChanged += new System.EventHandler(this.comboS2_SelectedIndexChanged);
             // 
             // Form1
             // 
@@ -167,6 +239,9 @@
             this.Debug.ResumeLayout(false);
             this.Debug.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.metroStyleManager1)).EndInit();
+            this.Modes.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -185,6 +260,11 @@
         private MetroFramework.Controls.MetroComboBox comboBox1;
         private System.IO.Ports.SerialPort serialPort1;
         private MetroFramework.Controls.MetroLabel serialLabel;
+        private MetroFramework.Controls.MetroTabPage Modes;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private MetroFramework.Controls.MetroComboBox comboS1;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private MetroFramework.Controls.MetroComboBox comboS2;
     }
 }
 

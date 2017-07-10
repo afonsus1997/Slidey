@@ -16,17 +16,10 @@ namespace Slidey
 {
     public partial class Form1 : MetroFramework.Forms.MetroForm
     {
-        //int lastVolume1 = SerialEmulator.fromSliderToProgram;
-        #region DLLS
-        [System.Runtime.InteropServices.DllImport("user32.dll")]
-        static extern IntPtr GetForegroundWindow();
+        Slider Slider1 = new Slider("S1");
+        Slider Slider2 = new Slider("S2");
 
-        [System.Runtime.InteropServices.DllImport("user32.dll")]
-        static extern int GetWindowText(IntPtr hWnd, StringBuilder text, int count);
-
-        [DllImport("user32.dll")]
-        public static extern IntPtr GetWindowThreadProcessId(IntPtr hWnd, out uint ProcessId);
-        #endregion
+        
 
         #region SERIAL COMM
         string rxString;
@@ -122,10 +115,13 @@ namespace Slidey
         {
             SerialHandler.RXstring = rxString;
             serialLabel.Text = rxString;
+            updateVolume(rxString);
         }
 
 
 #endregion
+
+        
 
         public Form1()
         {
@@ -140,81 +136,15 @@ namespace Slidey
         private void timer1_Tick(object sender, EventArgs e)
         {
             atualizaListaCOMs();
-            serialTextConverter();
-            
-            
-
-        }
-
-        private string GetActiveWindowTitle()
-        {
-            const int nChars = 256;
-            StringBuilder Buff = new StringBuilder(nChars);
-            IntPtr handle = GetForegroundWindow();
-
-            if (GetWindowText(handle, Buff, nChars) > 0)
-            {
-                return Buff.ToString();
-            }
-            return null;
-        }
-
-        void serialTextConverter()
-        {
-            string text = SerialEmulator.fromSliderToProgram;
-            int value;
-            int sliderNumber;
-            if(text[0]=='S' && Int32.TryParse(text[1].ToString(), out value))
-            {
-                
-                
-                value = Convert.ToInt32(text.Substring(2));
-                String appname = GetActiveWindowTitle();
-              
-                IntPtr hwnd = GetForegroundWindow();
-                uint pid;
-                GetWindowThreadProcessId(hwnd, out pid);
-                Process p = Process.GetProcessById((int)pid);
-                //Console.WriteLine(p.MainWindowTitle);
-                int pid1 = p.Id;
-                //appname = "Spotify";
-                VolumeHandler.SetApplicationVolume(pid1, value);
-            }
 
         }
 
 
+        
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        #region miscEvents
 
         private void Form1_Leave(object sender, EventArgs e)
         {
@@ -232,22 +162,51 @@ namespace Slidey
             metroStyleManager1.Style = MetroColorStyle.Orange;
         }
 
-       
-
-
-
-
-
         private void Form1_FormClosed(object sender, FormClosedEventArgs e)
         {
             if (serialPort1.IsOpen == true)  // se porta aberta
                 serialPort1.Close();         //fecha a porta
         }
 
-       
 
 
 
-    
+        #endregion
+
+        private void comboS1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if(comboS1.Text == "Master") { Slider1.currentMode = 0; }
+            else if (comboS1.Text == "Current App") { Slider1.currentMode = 1; }
+        }
+
+        private void comboS2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (comboS2.Text == "Master") { Slider2.currentMode = 0; }
+            else if (comboS2.Text == "Current App") { Slider2.currentMode = 1; }
+        }
+
+        void updateVolume(string rxString)
+        {
+            int value;
+            if (rxString[0] == 'S' && Int32.TryParse(rxString[1].ToString(), out value))
+            {
+                if (value == 1)
+                {
+                    Slider1.changeVolume(Convert.ToInt32(rxString.Substring(2)));
+                }
+                if (value == 2)
+                {
+                    Slider2.changeVolume(Convert.ToInt32(rxString.Substring(2)));
+                }
+            }
+        }
+
+
+        
+
+
+
+
+
     }
 }
