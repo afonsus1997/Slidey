@@ -80,6 +80,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SerialHandler.cs" />
     <Compile Include="Slider.cs" />
+    <Compile Include="VolumeDraw.cs" />
     <Compile Include="VolumeHandler.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
@@ -110,6 +111,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="MetroFramework.txt" />
+    <None Include="pictures\Sliderbkbig.png" />
+    <None Include="pictures\Sliderbk.png" />
+    <None Include="pictures\Slider.png" />
+    <None Include="pictures\faderbody.png" />
+    <None Include="pictures\faderknob.png" />
+    <None Include="Resources\knob.bmp" />
     <None Include="pictures\fader.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -11,7 +11,7 @@ namespace Slidey
     class VolumeHandler
     {
 
-
+        
 
         public static float? GetApplicationVolume(int pid)
         {

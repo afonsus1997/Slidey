@@ -115,7 +115,7 @@ namespace Slidey
         {
             SerialHandler.RXstring = rxString;
             serialLabel.Text = rxString;
-            updateVolume(rxString);
+            updateVolumeSerial(rxString);
         }
 
 
@@ -128,6 +128,9 @@ namespace Slidey
             InitializeComponent();
             this.StyleManager = metroStyleManager1;
             timer1.Start();
+            body1.Location = new Point(VolumeDraw.Hpos1, VolumeDraw.Vpos1);
+            
+
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -182,20 +185,32 @@ namespace Slidey
             else if (comboS2.Text == "Current App") { Slider2.currentMode = 1; }
         }
 
-        void updateVolume(string rxString)
+        void updateVolumeSerial(string rxString) //when recieve from serial
         {
             int value;
-            if (rxString[0] == 'S' && Int32.TryParse(rxString[1].ToString(), out value))
+            try
             {
-                if (value == 1)
+                if (rxString[0] == 'S' && Int32.TryParse(rxString[1].ToString(), out value))
                 {
-                    Slider1.changeVolume(Convert.ToInt32(rxString.Substring(2)));
-                }
-                if (value == 2)
-                {
-                    Slider2.changeVolume(Convert.ToInt32(rxString.Substring(2)));
+                    if (value == 1) //if 1st knob
+                    {
+                        Slider1.changeVolume(Convert.ToInt32(rxString.Substring(2)));
+                        //set 1st knob
+                        int thing = Convert.ToInt32(rxString.Substring(2));
+                        int pos = VolumeDraw.changeKnobPos(thing);
+                        knob1.Location = new Point(VolumeDraw.knob1posVer, pos);
+                    }
+                    if (value == 2)
+                    {
+                        Slider2.changeVolume(Convert.ToInt32(rxString.Substring(2)));
+                        //set 2nd knob
+                        int pos = VolumeDraw.changeKnobPos(Convert.ToInt32(rxString.Substring(2)));
+                        knob2.Location = new Point(VolumeDraw.knob1posVer, pos);
+
+                    }
                 }
             }
+            catch { }
         }
 
 
