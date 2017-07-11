@@ -76,13 +76,13 @@
             // 
             this.metroTabControl1.Controls.Add(this.Start);
             this.metroTabControl1.Controls.Add(this.Sliders);
+            this.metroTabControl1.Controls.Add(this.Buttons);
             this.metroTabControl1.Controls.Add(this.Serial);
             this.metroTabControl1.Controls.Add(this.Debug);
             this.metroTabControl1.Controls.Add(this.About);
-            this.metroTabControl1.Controls.Add(this.Buttons);
             this.metroTabControl1.Location = new System.Drawing.Point(23, 63);
             this.metroTabControl1.Name = "metroTabControl1";
-            this.metroTabControl1.SelectedIndex = 1;
+            this.metroTabControl1.SelectedIndex = 0;
             this.metroTabControl1.Size = new System.Drawing.Size(665, 373);
             this.metroTabControl1.TabIndex = 0;
             // 
