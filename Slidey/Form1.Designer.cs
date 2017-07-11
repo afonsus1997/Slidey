@@ -367,6 +367,7 @@
             this.Text = "Slidey Settings";
             this.Activated += new System.EventHandler(this.Form1_Activated);
             this.Deactivate += new System.EventHandler(this.Form1_Deactivate);
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Leave += new System.EventHandler(this.Form1_Leave);
             this.metroTabControl1.ResumeLayout(false);
             this.Start.ResumeLayout(false);

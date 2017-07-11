@@ -12,6 +12,7 @@ using System.Runtime.InteropServices;
 using System.Diagnostics;
 using System.IO.Ports;
 using System.Threading;
+using Slidey.Properties;
 
 namespace Slidey
 {
@@ -131,10 +132,18 @@ namespace Slidey
             timer1.Start();
             body1.Location = new Point(VolumeDraw.Hpos1, VolumeDraw.Vpos1);
             MaximizeBox = false;
+            Slider1.currentMode = Properties.Settings.Default.slider1Status;
+            Slider2.currentMode = Properties.Settings.Default.slider2Status;
 
-            
+            if(Slider1.currentMode == 0)  { comboS1.Text = "Master"; }
+            if (Slider1.currentMode == 1) { comboS1.Text = "Current App"; }
+            if (Slider2.currentMode == 0) { comboS2.Text = "Master"; }
+            if (Slider2.currentMode == 1) { comboS2.Text = "Current App"; }
 
-            
+
+
+
+
 
 
         }
@@ -178,7 +187,11 @@ namespace Slidey
         private void Form1_FormClosed(object sender, FormClosedEventArgs e)
         {
             if (serialPort1.IsOpen == true)  // se porta aberta
-                serialPort1.Close();         //fecha a porta
+                serialPort1.Close();
+            Properties.Settings.Default.slider1Status= Slider1.currentMode ;
+            Properties.Settings.Default.slider1Status=Slider1.currentMode  ;
+            Properties.Settings.Default.Save();
+            //fecha a porta
         }
 
 
@@ -226,6 +239,13 @@ namespace Slidey
             catch { }
         }
 
-        
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (serialPort1.IsOpen == true)  // se porta aberta
+            serialPort1.Close();
+            Properties.Settings.Default["slider1Status"] = Slider1.currentMode;
+            Properties.Settings.Default["slider2Status"] = Slider2.currentMode;
+            Properties.Settings.Default.Save();
+        }
     }
 }
