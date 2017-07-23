@@ -5,6 +5,7 @@
 */
 
 #include "funcsanddefs.h"
+#include "modes.h"
 
 // the setup function runs once when you press reset or power the board
 void setup() {
@@ -19,16 +20,8 @@ void setup() {
 
 // the loop function runs over and over again until power down or reset
 void loop() {
-  if(Serial.available()>0){
-    int x = Serial.parseInt();
-    if(x != -1 || x != 0){
-      Serial.print("Going to "); Serial.println(x);
-      setPos(x);
-    }
-    else{
-      currentPos();
-    }
-  }
+  demo1();
+  demo10();
 }
 
 

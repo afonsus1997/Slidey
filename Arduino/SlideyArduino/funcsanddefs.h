@@ -4,7 +4,7 @@
 #define INB 9
 #define pot A0
 
-#define defspeed 250
+#define defspeed 255
 
 int lastPos;
 
@@ -52,6 +52,10 @@ void currentPos(){
   Serial.print("Current pos "); Serial.println(current);
 }
 
+int getCurrentPos(){
+  return readPot();
+  
+}
 void setPos(int pos){
   //int conv = map(pos, 0, 100, 0, 1024);
   int read = readPot();
@@ -60,13 +64,18 @@ void setPos(int pos){
     Serial.print("Current pos "); Serial.println(read);
     read = readPot();
     
+    int dif = abs(pos - read);
+    int speed = defspeed;
+    if(dif<=15){speed = 200;}
+    if(dif<=5){speed = 180;}
+    
     if(pos > read){
       //tem de subir
-      runMotor('u', defspeed);
+      runMotor('u', speed);
     }
     else if(pos<read){
       //tem de descer
-      runMotor('d', defspeed);
+      runMotor('d', speed);
     }
     else{
       stopMotor();
