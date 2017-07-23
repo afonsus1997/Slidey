@@ -5,13 +5,19 @@
 #define pot A0
 
 #define defspeed 255
+#define speed15 220
+#define speed5 200
+
+#define changeThresh 1
+#define potMillisThresh 10
 
 int lastPos;
-
+int cont = 0;
+int potMillis = 0;
 
 
 void sendData(String out) {
-		Serial.println(out);
+		Serial.print(out);
 }
 
 void runMotor(char dir, int speed){
@@ -59,15 +65,15 @@ int getCurrentPos(){
 void setPos(int pos){
   //int conv = map(pos, 0, 100, 0, 1024);
   int read = readPot();
-  while(readPot() != pos){
+  while(abs(readPot()-pos) >= 2){
     
     Serial.print("Current pos "); Serial.println(read);
     read = readPot();
     
     int dif = abs(pos - read);
     int speed = defspeed;
-    if(dif<=15){speed = 200;}
-    if(dif<=5){speed = 180;}
+    if(dif<=15){speed = speed15;}
+    if(dif<=5){speed = speed5;}
     
     if(pos > read){
       //tem de subir
@@ -86,3 +92,16 @@ void setPos(int pos){
   
 }
 
+
+void checkPot() {
+	int potReading = readPot();
+	int currentMillis = millis();
+	if (abs(potReading - lastPos) >= changeThresh && abs(currentMillis - potMillis)>potMillisThresh) {
+		//send new value
+		//String out = String(cont) + " - S1" + String(potReading); cont++;
+		String out = "S1" + String(potReading);
+		sendData(out);
+	}
+	lastPos = potReading;
+	potMillis = millis();
+}
