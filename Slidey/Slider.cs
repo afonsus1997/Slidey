@@ -129,9 +129,10 @@ namespace Slidey
                 Process[] processes = Process.GetProcesses();
                 foreach (Process p in processes)
                 {
-                    if (p.ProcessName == chosenAPP)
+                    if (p.ProcessName == chosenAPP && !String.IsNullOrEmpty(p.MainWindowTitle))
                     {
                         id = p.Id;
+                        break;
                     }
                 }
 
@@ -174,7 +175,7 @@ namespace Slidey
 
             else if (currentMode == CHOOSE)
             {
-                //changeVolume of focused
+                
                 if (value != currentValue)
                 {
                     String appname = chosenAPP;
@@ -182,7 +183,7 @@ namespace Slidey
                     Process[] processes = Process.GetProcesses();
                     foreach (Process p in processes)
                     {
-                        if (p.ProcessName == chosenAPP)
+                        if (p.ProcessName == chosenAPP && !String.IsNullOrEmpty(p.MainWindowTitle))
                         {
                             id = p.Id;
                         }

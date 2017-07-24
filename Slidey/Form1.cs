@@ -160,6 +160,7 @@ namespace Slidey
 
 
             int value1 = Slider1.getVolume();
+            int value2 = Slider2.getVolume();
 
 
             if (value1 != Slider1.currentValue)
@@ -186,12 +187,41 @@ namespace Slidey
                 
             }
 
+            if (value2 != Slider2.currentValue)
+            {
+                knob2.Location = new Point(VolumeDraw.knob2posVer, VolumeDraw.changeKnobPos(Slider2.getVolume()));
+                Slider2.currentValue = value2;
+                string send;
+                if (Slider2.currentValue == 0)
+                {
+                    send = "0";
+                }
+
+                else if (Slider2.currentValue == 100)
+                {
+                    send = "99";
+                }
+                else
+                {
+                    send = Slider2.currentValue.ToString();
+                }
+                Console.WriteLine("Sent " + send);
+                //Convert.ToInt32(send);
+                //if (serialPort1.IsOpen) { serialPort1.Write(send + '\n'); }
+
+            }
+
+
+
             if (Slider1.currentMode == 0) { S1Box.Text = Slider1.modeHelpText[0]; appCombo1.Enabled = false; }
             if (Slider1.currentMode == 1) { S1Box.Text = Slider1.modeHelpText[1]; appCombo1.Enabled = false; }
             if (Slider1.currentMode == 2) { S1Box.Text = Slider1.modeHelpText[2]; appCombo1.Enabled = true; }
             if (Slider2.currentMode == 0) { S2Box.Text = Slider2.modeHelpText[0]; appCombo2.Enabled = false; }
             if (Slider2.currentMode == 1) { S2Box.Text = Slider2.modeHelpText[1]; appCombo2.Enabled = false; }
             if (Slider2.currentMode == 2) { S2Box.Text = Slider2.modeHelpText[2]; appCombo2.Enabled = true; }
+
+            if(appCombo1.Enabled == false) { appCombo1.Text = "Unavailable"; }
+            if (appCombo2.Enabled == false) { appCombo2.Text = "Unavailable"; }
 
 
 
@@ -296,7 +326,7 @@ namespace Slidey
             {
                 if (!String.IsNullOrEmpty(p.MainWindowTitle))
                 {
-                    appCombo1.Items.Add(p.MainWindowTitle);
+                    appCombo1.Items.Add(p.ProcessName);
                 }
             }
         }
@@ -309,7 +339,7 @@ namespace Slidey
             {
                 if (!String.IsNullOrEmpty(p.MainWindowTitle))
                 {
-                    appCombo2.Items.Add(p.MainWindowTitle);
+                    appCombo2.Items.Add(p.ProcessName);
                 }
             }
         }
@@ -324,7 +354,15 @@ namespace Slidey
             Slider2.chosenAPP = appCombo1.Text;
         }
 
+        private void appCombo1_TextChanged(object sender, EventArgs e)
+        {
 
+            Slider1.chosenAPP = appCombo1.Text;
+        }
 
+        private void appCombo2_TextChanged(object sender, EventArgs e)
+        {
+            Slider2.chosenAPP = appCombo2.Text;
+        }
     }
 }

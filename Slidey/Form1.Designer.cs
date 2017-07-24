@@ -34,15 +34,20 @@
             this.Start = new MetroFramework.Controls.MetroTabPage();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.Sliders = new MetroFramework.Controls.MetroTabPage();
+            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.S1Box = new System.Windows.Forms.RichTextBox();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.S2Box = new System.Windows.Forms.RichTextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.comboS2 = new MetroFramework.Controls.MetroComboBox();
+            this.appCombo2 = new MetroFramework.Controls.MetroComboBox();
+            this.appCombo1 = new MetroFramework.Controls.MetroComboBox();
             this.comboS1 = new MetroFramework.Controls.MetroComboBox();
             this.knob2 = new System.Windows.Forms.PictureBox();
             this.knob1 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.body1 = new System.Windows.Forms.PictureBox();
-            this.Buttons = new MetroFramework.Controls.MetroTabPage();
             this.Serial = new MetroFramework.Controls.MetroTabPage();
             this.serialLabel = new MetroFramework.Controls.MetroLabel();
             this.connectButton = new MetroFramework.Controls.MetroButton();
@@ -54,19 +59,16 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.Buttons = new MetroFramework.Controls.MetroTabPage();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.metroStyleManager1 = new MetroFramework.Components.MetroStyleManager(this.components);
             this.serialPort1 = new System.IO.Ports.SerialPort(this.components);
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.S2Box = new System.Windows.Forms.RichTextBox();
-            this.S1Box = new System.Windows.Forms.RichTextBox();
-            this.appCombo1 = new MetroFramework.Controls.MetroComboBox();
-            this.appCombo2 = new MetroFramework.Controls.MetroComboBox();
             this.metroTabControl1.SuspendLayout();
             this.Start.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.Sliders.SuspendLayout();
+            this.tableLayoutPanel2.SuspendLayout();
+            this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.knob2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.knob1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -76,8 +78,6 @@
             this.About.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.metroStyleManager1)).BeginInit();
-            this.tableLayoutPanel1.SuspendLayout();
-            this.tableLayoutPanel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // metroTabControl1
@@ -137,6 +137,58 @@
             this.Sliders.Text = "Modes";
             this.Sliders.VerticalScrollbarBarColor = true;
             // 
+            // tableLayoutPanel2
+            // 
+            this.tableLayoutPanel2.ColumnCount = 1;
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.Controls.Add(this.S1Box, 0, 0);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(12, 231);
+            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+            this.tableLayoutPanel2.RowCount = 1;
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(200, 100);
+            this.tableLayoutPanel2.TabIndex = 7;
+            // 
+            // S1Box
+            // 
+            this.S1Box.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.S1Box.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.S1Box.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.S1Box.Location = new System.Drawing.Point(3, 3);
+            this.S1Box.Name = "S1Box";
+            this.S1Box.ReadOnly = true;
+            this.S1Box.Size = new System.Drawing.Size(194, 94);
+            this.S1Box.TabIndex = 0;
+            this.S1Box.Text = "Slider 1 Text";
+            // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.ColumnCount = 1;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 96.26168F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 3.738318F));
+            this.tableLayoutPanel1.Controls.Add(this.S2Box, 0, 0);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(440, 231);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 1;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 92F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 8F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(214, 100);
+            this.tableLayoutPanel1.TabIndex = 6;
+            // 
+            // S2Box
+            // 
+            this.S2Box.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.S2Box.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.S2Box.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.S2Box.Location = new System.Drawing.Point(3, 3);
+            this.S2Box.Name = "S2Box";
+            this.S2Box.ReadOnly = true;
+            this.S2Box.Size = new System.Drawing.Size(208, 94);
+            this.S2Box.TabIndex = 0;
+            this.S2Box.Text = "Slider 2 Text";
+            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -175,6 +227,29 @@
             this.comboS2.Size = new System.Drawing.Size(121, 29);
             this.comboS2.TabIndex = 2;
             this.comboS2.SelectedIndexChanged += new System.EventHandler(this.comboS2_SelectedIndexChanged);
+            // 
+            // appCombo2
+            // 
+            this.appCombo2.FormattingEnabled = true;
+            this.appCombo2.ItemHeight = 23;
+            this.appCombo2.Location = new System.Drawing.Point(431, 114);
+            this.appCombo2.Name = "appCombo2";
+            this.appCombo2.Size = new System.Drawing.Size(208, 29);
+            this.appCombo2.TabIndex = 2;
+            this.appCombo2.DropDown += new System.EventHandler(this.appCombo2_DropDown);
+            this.appCombo2.SelectedIndexChanged += new System.EventHandler(this.appCombo2_TextChanged);
+            // 
+            // appCombo1
+            // 
+            this.appCombo1.FormattingEnabled = true;
+            this.appCombo1.ItemHeight = 23;
+            this.appCombo1.Location = new System.Drawing.Point(5, 114);
+            this.appCombo1.Name = "appCombo1";
+            this.appCombo1.Size = new System.Drawing.Size(208, 29);
+            this.appCombo1.TabIndex = 2;
+            this.appCombo1.DropDown += new System.EventHandler(this.appCombo1_DropDown);
+            this.appCombo1.SelectedIndexChanged += new System.EventHandler(this.comboS1_SelectedIndexChanged);
+            this.appCombo1.TextChanged += new System.EventHandler(this.appCombo1_TextChanged);
             // 
             // comboS1
             // 
@@ -229,16 +304,6 @@
             this.body1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.body1.TabIndex = 3;
             this.body1.TabStop = false;
-            // 
-            // Buttons
-            // 
-            this.Buttons.HorizontalScrollbarBarColor = true;
-            this.Buttons.Location = new System.Drawing.Point(4, 35);
-            this.Buttons.Name = "Buttons";
-            this.Buttons.Size = new System.Drawing.Size(657, 334);
-            this.Buttons.TabIndex = 5;
-            this.Buttons.Text = "Buttons";
-            this.Buttons.VerticalScrollbarBarColor = true;
             // 
             // Serial
             // 
@@ -358,6 +423,16 @@
             this.pictureBox2.TabIndex = 2;
             this.pictureBox2.TabStop = false;
             // 
+            // Buttons
+            // 
+            this.Buttons.HorizontalScrollbarBarColor = true;
+            this.Buttons.Location = new System.Drawing.Point(4, 35);
+            this.Buttons.Name = "Buttons";
+            this.Buttons.Size = new System.Drawing.Size(657, 334);
+            this.Buttons.TabIndex = 5;
+            this.Buttons.Text = "Buttons";
+            this.Buttons.VerticalScrollbarBarColor = true;
+            // 
             // timer1
             // 
             this.timer1.Interval = 50;
@@ -368,80 +443,6 @@
             this.metroStyleManager1.Owner = this;
             this.metroStyleManager1.Style = MetroFramework.MetroColorStyle.Orange;
             this.metroStyleManager1.Theme = MetroFramework.MetroThemeStyle.Light;
-            // 
-            // tableLayoutPanel1
-            // 
-            this.tableLayoutPanel1.ColumnCount = 1;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 96.26168F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 3.738318F));
-            this.tableLayoutPanel1.Controls.Add(this.S2Box, 0, 0);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(440, 231);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 1;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 92F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 8F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(214, 100);
-            this.tableLayoutPanel1.TabIndex = 6;
-            // 
-            // tableLayoutPanel2
-            // 
-            this.tableLayoutPanel2.ColumnCount = 1;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Controls.Add(this.S1Box, 0, 0);
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(12, 231);
-            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            this.tableLayoutPanel2.RowCount = 1;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(200, 100);
-            this.tableLayoutPanel2.TabIndex = 7;
-            // 
-            // S2Box
-            // 
-            this.S2Box.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.S2Box.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.S2Box.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.S2Box.Location = new System.Drawing.Point(3, 3);
-            this.S2Box.Name = "S2Box";
-            this.S2Box.ReadOnly = true;
-            this.S2Box.Size = new System.Drawing.Size(208, 94);
-            this.S2Box.TabIndex = 0;
-            this.S2Box.Text = "Slider 2 Text";
-            // 
-            // S1Box
-            // 
-            this.S1Box.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.S1Box.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.S1Box.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.S1Box.Location = new System.Drawing.Point(3, 3);
-            this.S1Box.Name = "S1Box";
-            this.S1Box.ReadOnly = true;
-            this.S1Box.Size = new System.Drawing.Size(194, 94);
-            this.S1Box.TabIndex = 0;
-            this.S1Box.Text = "Slider 1 Text";
-            // 
-            // appCombo1
-            // 
-            this.appCombo1.FormattingEnabled = true;
-            this.appCombo1.ItemHeight = 23;
-            this.appCombo1.Location = new System.Drawing.Point(5, 114);
-            this.appCombo1.Name = "appCombo1";
-            this.appCombo1.Size = new System.Drawing.Size(208, 29);
-            this.appCombo1.TabIndex = 2;
-            this.appCombo1.DropDown += new System.EventHandler(this.appCombo1_DropDown);
-            this.appCombo1.SelectedIndexChanged += new System.EventHandler(this.comboS1_SelectedIndexChanged);
-            // 
-            // appCombo2
-            // 
-            this.appCombo2.FormattingEnabled = true;
-            this.appCombo2.ItemHeight = 23;
-            this.appCombo2.Location = new System.Drawing.Point(431, 114);
-            this.appCombo2.Name = "appCombo2";
-            this.appCombo2.Size = new System.Drawing.Size(208, 29);
-            this.appCombo2.TabIndex = 2;
-            this.appCombo2.DropDown += new System.EventHandler(this.appCombo2_DropDown);
-            this.appCombo2.SelectedIndexChanged += new System.EventHandler(this.comboS1_SelectedIndexChanged);
             // 
             // Form1
             // 
@@ -462,6 +463,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.Sliders.ResumeLayout(false);
             this.Sliders.PerformLayout();
+            this.tableLayoutPanel2.ResumeLayout(false);
+            this.tableLayoutPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.knob2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.knob1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -474,8 +477,6 @@
             this.About.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.metroStyleManager1)).EndInit();
-            this.tableLayoutPanel1.ResumeLayout(false);
-            this.tableLayoutPanel2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
