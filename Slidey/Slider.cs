@@ -54,11 +54,16 @@ namespace Slidey
         }
 
 
-        public void SendValues(int value)
+        public int SendValues(int value)
         {
-            if(value != currentValue)
+            if (value != currentValue)
             {
                 currentValue = value;
+                return value;
+            }
+            else
+            {
+                return -1;
             }
         }
 
@@ -113,21 +118,26 @@ namespace Slidey
         {
             if(currentMode == MASTER)
             {
-                //change master Volume
+                AudioManager.SetMasterVolume(value);
+                currentValue = value;
             }
 
             else if(currentMode == ESPECIFIC)
             {
                 //changeVolume of focused
-                String appname = GetActiveWindowTitle();
-                IntPtr hwnd = GetForegroundWindow();
-                uint pid;
-                GetWindowThreadProcessId(hwnd, out pid);
-                Process p = Process.GetProcessById((int)pid);
-                //Console.WriteLine(p.MainWindowTitle);
-                int pid1 = p.Id;
-                //appname = "Spotify";
-                VolumeHandler.SetApplicationVolume(pid1, value);
+                if (value != currentValue) {
+                    String appname = GetActiveWindowTitle();
+                    IntPtr hwnd = GetForegroundWindow();
+                    uint pid;
+                    GetWindowThreadProcessId(hwnd, out pid);
+                    Process p = Process.GetProcessById((int)pid);
+                    //Console.WriteLine(p.MainWindowTitle);
+                    int pid1 = p.Id;
+                    //appname = "Spotify";
+                    VolumeHandler.SetApplicationVolume(pid1, value);
+                    currentValue = value;
+                }
+                
 
 
             }

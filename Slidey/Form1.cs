@@ -154,8 +154,40 @@ namespace Slidey
         private void timer1_Tick(object sender, EventArgs e)
         {
             atualizaListaCOMs();
-            knob1.Location = new Point(VolumeDraw.knob1posVer, VolumeDraw.changeKnobPos(Slider1.getVolume()));
-            knob2.Location = new Point(VolumeDraw.knob2posVer, VolumeDraw.changeKnobPos(Slider2.getVolume()));
+            int value1 = Slider1.getVolume();
+            if (value1 != Slider1.currentValue)
+            {
+                knob1.Location = new Point(VolumeDraw.knob1posVer, VolumeDraw.changeKnobPos(Slider1.getVolume()));
+                Slider1.currentValue = value1;
+                string send;
+                if(Slider1.currentValue == 0)
+                {
+                    send = "0";
+                }
+
+                else if (Slider1.currentValue == 100)
+                {
+                    send = "99";
+                }
+                else
+                {
+                    send = Slider1.currentValue.ToString();
+                }
+                Console.WriteLine("Sent " + send);
+                //Convert.ToInt32(send);
+                if (serialPort1.IsOpen) { serialPort1.Write(send+'\n'); }
+                
+            }
+
+            /*if (Slider2.getVolume() != Slider2.currentValue)
+            {
+                knob2.Location = new Point(VolumeDraw.knob2posVer, VolumeDraw.changeKnobPos(Slider2.getVolume()));
+                Slider2.currentValue = Slider2.getVolume();
+                string send = "S2" + Slider2.currentValue.ToString();
+                serialPort1.Write(send);
+
+
+            }*/
 
 
         }

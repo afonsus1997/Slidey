@@ -8,48 +8,6 @@
     <VCCodeModel>
       <VCCodeMacros />
     </VCCodeModel>
-    <BreakPoints>
-      <BreakPoint Index="1" Name="Form1.cs, line 188 character 9" Id="e0f4f5f6-5496-461e-b677-9ca091d666d2" Enabled="1" Message="" MessageTextType="2" PreProcessedMessage="" Condition="" ConditionType="1" CurrentHits="0" File="f:\documents\github\slidey\slidey\form1.cs" FileLine="188" FileColumn="9" FunctionName="" FunctionLineOffset="1" FunctionColumnOffset="1" HitCountTarget="1" HitCountType="1" Language="" LocationType="3" Tag="&lt;vmbp Id='e0f4f5f6-5496-461e-b677-9ca091d666d2'/&gt;" Type="1" ToString="System.__ComObject" BreakWhenHit="1" />
-      <BreakPoint Index="2" Name="Form1.cs, line 111 character 9" Id="7f835672-ccca-4888-ac56-0b94a69caac5" Enabled="1" Message="" MessageTextType="2" PreProcessedMessage="" Condition="" ConditionType="1" CurrentHits="0" File="c:\users\afonsom\desktop\github\slidey\slidey\form1.cs" FileLine="111" FileColumn="9" FunctionName="Slidey.Form1.serialPort1_DataReceived(object sender, SerialDataReceivedEventArgs e)" FunctionLineOffset="2" FunctionColumnOffset="1" HitCountTarget="1" HitCountType="1" Language="C#" LocationType="3" Tag="&lt;vmbp Id='7f835672-ccca-4888-ac56-0b94a69caac5'/&gt;" Type="1" ToString="System.__ComObject" BreakWhenHit="1">
-        <Source>104	                    return;
-105	                }
-106	
-107	            }
-108	        }
-109	
-110	        private void serialPort1_DataReceived(object sender, SerialDataReceivedEventArgs e)
---&gt;111	        {
-112	            rxString = serialPort1.ReadExisting();              //le o dado disponível na serial
-113	            this.Invoke(new EventHandler(trataDadoRecebido));   //chama outra thread para escrever o dado no text box
-114	        }
-115	
-116	        private void trataDadoRecebido(object sender, EventArgs e)
-117	        {
-118	            SerialHandler.RXstring = rxString;
-119	            serialLabel.Text = rxString;
-120	            updateVolumeSerial(rxString);
-</Source>
-      </BreakPoint>
-      <BreakPoint Index="3" Name="Form1.cs, line 117 character 9" Id="53c5451f-c4fc-470b-abd0-9555d63305ac" Enabled="1" Message="" MessageTextType="2" PreProcessedMessage="" Condition="" ConditionType="1" CurrentHits="0" File="c:\users\afonsom\desktop\github\slidey\slidey\form1.cs" FileLine="117" FileColumn="9" FunctionName="Slidey.Form1.trataDadoRecebido(object sender, EventArgs e)" FunctionLineOffset="2" FunctionColumnOffset="1" HitCountTarget="1" HitCountType="1" Language="C#" LocationType="3" Tag="&lt;vmbp Id='53c5451f-c4fc-470b-abd0-9555d63305ac'/&gt;" Type="1" ToString="System.__ComObject" BreakWhenHit="1">
-        <Source>110	        private void serialPort1_DataReceived(object sender, SerialDataReceivedEventArgs e)
-111	        {
-112	            rxString = serialPort1.ReadExisting();              //le o dado disponível na serial
-113	            this.Invoke(new EventHandler(trataDadoRecebido));   //chama outra thread para escrever o dado no text box
-114	        }
-115	
-116	        private void trataDadoRecebido(object sender, EventArgs e)
---&gt;117	        {
-118	            SerialHandler.RXstring = rxString;
-119	            serialLabel.Text = rxString;
-120	            updateVolumeSerial(rxString);
-121	        }
-122	
-123	
-124	        #endregion
-125	
-126	
-</Source>
-      </BreakPoint>
-    </BreakPoints>
+    <BreakPoints />
   </Program>
 </VisualMicro>

@@ -21,7 +21,7 @@ void setup() {
 // the loop function runs over and over again until power down or reset
 void loop() {
 	serialMode();
-	checkPot();
+	 checkPot();
 	//Serial.println(readPot());
 	delay(10);
 }

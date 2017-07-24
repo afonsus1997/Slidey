@@ -5,15 +5,17 @@
 #define pot A0
 
 #define defspeed 255
-#define speed15 220
-#define speed5 200
+#define speed15 200
+#define speed5 180
 
-#define changeThresh 1
+#define changeThresh 10
+#define debounce 1
 #define potMillisThresh 10
 
 int lastPos;
 int cont = 0;
 int potMillis = 0;
+int interReading;
 
 
 void sendData(String out) {
@@ -51,11 +53,11 @@ int readPot(){
 
 void savePos(){
   lastPos = readPot();
-  Serial.print("Saved pos "); Serial.println(lastPos);
+  //Serial.print("Saved pos "); Serial.println(lastPos);
 }
 void currentPos(){
   int current = readPot();
-  Serial.print("Current pos "); Serial.println(current);
+  //Serial.print("Current pos "); Serial.println(current);
 }
 
 int getCurrentPos(){
@@ -64,28 +66,34 @@ int getCurrentPos(){
 }
 void setPos(int pos){
   //int conv = map(pos, 0, 100, 0, 1024);
-  int read = readPot();
+	int read = readPot(); interReading = read;
   while(abs(readPot()-pos) >= 2){
     
+	  interReading = read;
     Serial.print("Current pos "); Serial.println(read);
     read = readPot();
+	if (abs(read - interReading) < 30) {
+		int dif = abs(pos - read);
+		int speed = defspeed;
+		if (dif <= 15) { speed = speed15; }
+		if (dif <= 5) { speed = speed5; }
+
+		if (pos > read) {
+			//tem de subir
+			runMotor('u', speed);
+		}
+		else if (pos<read && read != 99) {
+			//tem de descer
+			runMotor('d', speed);
+		}
+		else {
+			stopMotor();
+		}
+	}
+	else {
+
+	}
     
-    int dif = abs(pos - read);
-    int speed = defspeed;
-    if(dif<=15){speed = speed15;}
-    if(dif<=5){speed = speed5;}
-    
-    if(pos > read){
-      //tem de subir
-      runMotor('u', speed);
-    }
-    else if(pos<read){
-      //tem de descer
-      runMotor('d', speed);
-    }
-    else{
-      stopMotor();
-    }
   }
   stopMotor();
   savePos();
@@ -96,7 +104,7 @@ void setPos(int pos){
 void checkPot() {
 	int potReading = readPot();
 	int currentMillis = millis();
-	if (abs(potReading - lastPos) >= changeThresh && abs(currentMillis - potMillis)>potMillisThresh) {
+	if (abs(potReading - lastPos) <= changeThresh && abs(potReading - lastPos) >= debounce && abs(currentMillis - potMillis)>potMillisThresh) {
 		//send new value
 		//String out = String(cont) + " - S1" + String(potReading); cont++;
 		String out = "S1" + String(potReading);

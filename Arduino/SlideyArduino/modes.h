@@ -1,8 +1,9 @@
 void serialMode(){
 if(Serial.available()>0){
-    Serial.flush();
-    int x = Serial.parseInt();
-    if(x != 0 && x != getCurrentPos()){
+    //Serial.flush();
+    
+	int x = Serial.parseInt();
+    if(x != 0 && x != getCurrentPos() && x <= 99 && x >= 0){
       Serial.print("Going to "); Serial.println(x);
       setPos(x);
     }
@@ -10,7 +11,8 @@ if(Serial.available()>0){
       currentPos();
     }
     
-  }
+  
+}
 }
 
 void demo1(){
