@@ -135,11 +135,14 @@ namespace Slidey
             Slider1.currentMode = Properties.Settings.Default.slider1Status;
             Slider2.currentMode = Properties.Settings.Default.slider2Status;
 
-            if(Slider1.currentMode == 0)  { comboS1.Text = "Master"; }
-            if (Slider1.currentMode == 1) { comboS1.Text = "Current App"; }
-            if (Slider2.currentMode == 0) { comboS2.Text = "Master"; }
-            if (Slider2.currentMode == 1) { comboS2.Text = "Current App"; }
+            if (Slider1.currentMode == 0)  { comboS1.Text = "Master"; S1Box.Text = Slider1.modeHelpText[0]; appCombo1.Enabled = false; }
+            if (Slider1.currentMode == 1) { comboS1.Text = "Current App"; S1Box.Text = Slider1.modeHelpText[1]; appCombo1.Enabled = false; }
+            if (Slider1.currentMode == 2) { comboS1.Text = "Choose App..."; S1Box.Text = Slider1.modeHelpText[2]; appCombo1.Enabled = true; }
 
+
+            if (Slider2.currentMode == 0) { comboS2.Text = "Master"; S2Box.Text = Slider2.modeHelpText[0]; appCombo1.Enabled = false; }
+            if (Slider2.currentMode == 1) { comboS2.Text = "Current App"; S2Box.Text = Slider2.modeHelpText[1]; appCombo1.Enabled = false; }
+            if (Slider1.currentMode == 2) { comboS2.Text = "Choose App..."; S2Box.Text = Slider2.modeHelpText[2]; appCombo1.Enabled = true; }
 
 
 
@@ -154,7 +157,11 @@ namespace Slidey
         private void timer1_Tick(object sender, EventArgs e)
         {
             atualizaListaCOMs();
+
+
             int value1 = Slider1.getVolume();
+
+
             if (value1 != Slider1.currentValue)
             {
                 knob1.Location = new Point(VolumeDraw.knob1posVer, VolumeDraw.changeKnobPos(Slider1.getVolume()));
@@ -179,15 +186,14 @@ namespace Slidey
                 
             }
 
-            /*if (Slider2.getVolume() != Slider2.currentValue)
-            {
-                knob2.Location = new Point(VolumeDraw.knob2posVer, VolumeDraw.changeKnobPos(Slider2.getVolume()));
-                Slider2.currentValue = Slider2.getVolume();
-                string send = "S2" + Slider2.currentValue.ToString();
-                serialPort1.Write(send);
+            if (Slider1.currentMode == 0) { S1Box.Text = Slider1.modeHelpText[0]; appCombo1.Enabled = false; }
+            if (Slider1.currentMode == 1) { S1Box.Text = Slider1.modeHelpText[1]; appCombo1.Enabled = false; }
+            if (Slider1.currentMode == 2) { S1Box.Text = Slider1.modeHelpText[2]; appCombo1.Enabled = true; }
+            if (Slider2.currentMode == 0) { S2Box.Text = Slider2.modeHelpText[0]; appCombo2.Enabled = false; }
+            if (Slider2.currentMode == 1) { S2Box.Text = Slider2.modeHelpText[1]; appCombo2.Enabled = false; }
+            if (Slider2.currentMode == 2) { S2Box.Text = Slider2.modeHelpText[2]; appCombo2.Enabled = true; }
 
 
-            }*/
 
 
         }
@@ -235,12 +241,14 @@ namespace Slidey
         {
             if (comboS1.Text == "Master") { Slider1.currentMode = 0; }
             else if (comboS1.Text == "Current App") { Slider1.currentMode = 1; }
+            else if (comboS1.Text == "Choose App...") { Slider1.currentMode = 2; }
         }
 
         private void comboS2_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (comboS2.Text == "Master") { Slider2.currentMode = 0; }
             else if (comboS2.Text == "Current App") { Slider2.currentMode = 1; }
+            else if (comboS2.Text == "Choose App...") { Slider2.currentMode = 2; }
         }
 
         void updateVolumeSerial(string rxString) //when recieve from serial
@@ -278,6 +286,32 @@ namespace Slidey
             Properties.Settings.Default["slider1Status"] = Slider1.currentMode;
             Properties.Settings.Default["slider2Status"] = Slider2.currentMode;
             Properties.Settings.Default.Save();
+        }
+
+        private void appCombo1_DropDown(object sender, EventArgs e)
+        {
+            appCombo1.Items.Clear();
+            Process[] processes = Process.GetProcesses();
+            foreach (Process p in processes)
+            {
+                if (!String.IsNullOrEmpty(p.MainWindowTitle))
+                {
+                    appCombo1.Items.Add(p.MainWindowTitle);
+                }
+            }
+        }
+
+        private void appCombo2_DropDown(object sender, EventArgs e)
+        {
+            appCombo2.Items.Clear();
+            Process[] processes = Process.GetProcesses();
+            foreach (Process p in processes)
+            {
+                if (!String.IsNullOrEmpty(p.MainWindowTitle))
+                {
+                    appCombo2.Items.Add(p.MainWindowTitle);
+                }
+            }
         }
     }
 }

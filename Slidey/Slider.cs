@@ -11,9 +11,15 @@ namespace Slidey
 
 
         #region MODES
-                    public const int MASTER = 0;
-                    public const int ESPECIFIC = 1;
-                #endregion
+        public const int MASTER = 0;
+        public const int ESPECIFIC = 1;
+        public const int CHOOSE = 2;
+
+        public String[] modeHelpText = { "Slider controlls computer's master volume.",
+                                  "Slider controlls the volume of the focused application.",
+                                  "Slider controlls the volume of the picked application."   };
+
+        #endregion
 
         #region DLLS
         [System.Runtime.InteropServices.DllImport("user32.dll")]
