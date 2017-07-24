@@ -313,5 +313,18 @@ namespace Slidey
                 }
             }
         }
+
+        private void appCombo1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Slider1.chosenAPP = appCombo1.Text;
+        }
+
+        private void appCombo2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Slider2.chosenAPP = appCombo1.Text;
+        }
+
+
+
     }
 }

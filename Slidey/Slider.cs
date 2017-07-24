@@ -19,6 +19,8 @@ namespace Slidey
                                   "Slider controlls the volume of the focused application.",
                                   "Slider controlls the volume of the picked application."   };
 
+        public String chosenAPP = "";
+
         #endregion
 
         #region DLLS
@@ -117,6 +119,30 @@ namespace Slidey
 
 
             }
+
+            else if (currentMode == CHOOSE)
+            {
+                
+
+                String appname = chosenAPP;
+                int id = 0;
+                Process[] processes = Process.GetProcesses();
+                foreach (Process p in processes)
+                {
+                    if (p.ProcessName == chosenAPP)
+                    {
+                        id = p.Id;
+                    }
+                }
+
+                
+                value = VolumeHandler.GetApplicationVolume(id);
+                return Convert.ToInt32(value);
+
+
+            }
+
+
             return 0;
         }
 
@@ -144,33 +170,31 @@ namespace Slidey
                     currentValue = value;
                 }
                 
+            }
 
+            else if (currentMode == CHOOSE)
+            {
+                //changeVolume of focused
+                if (value != currentValue)
+                {
+                    String appname = chosenAPP;
+                    int id = 0;
+                    Process[] processes = Process.GetProcesses();
+                    foreach (Process p in processes)
+                    {
+                        if (p.ProcessName == chosenAPP)
+                        {
+                            id = p.Id;
+                        }
+                    }
+
+                    VolumeHandler.SetApplicationVolume(id, value);
+                    currentValue = value;
+                }
 
             }
 
-            /*
-            void serialTextConverter()
-            {
-                string text = SerialEmulator.fromSliderToProgram;
-                int value;
-                int sliderNumber;
-                if (text[0] == 'S' && Int32.TryParse(text[1].ToString(), out value))
-                {
-
-
-                    value = Convert.ToInt32(text.Substring(2));
-                    String appname = GetActiveWindowTitle();
-                    IntPtr hwnd = GetForegroundWindow();
-                    uint pid;
-                    GetWindowThreadProcessId(hwnd, out pid);
-                    Process p = Process.GetProcessById((int)pid);
-                    //Console.WriteLine(p.MainWindowTitle);
-                    int pid1 = p.Id;
-                    //appname = "Spotify";
-                    VolumeHandler.SetApplicationVolume(pid1, value);
-                }
-
-            }*/
+            
 
 
 
