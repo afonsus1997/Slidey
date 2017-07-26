@@ -5,8 +5,8 @@
 #define pot A0
 
 #define defspeed 255
-#define speed15 200
-#define speed5 180
+#define speed15 255
+#define speed5 255
 
 #define changeThresh 10
 #define debounce 1
