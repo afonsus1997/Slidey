@@ -21,14 +21,111 @@ namespace Slidey
         Slider Slider1 = new Slider("S1");
         Slider Slider2 = new Slider("S2");
 
-
+        bool eventActive = false;
 
         #region SERIAL COMM
         string rxString;
 
+
+        public int tryConnect(string COM)
+        {
+            if (serialPort1.IsOpen == false) {
+                try
+                {
+                    serialPort1.PortName = COM;
+                    serialPort1.Open();
+
+                    Stopwatch time = new Stopwatch();
+
+                    time.Start();
+
+                    serialPort1.Write("CR"); //Connect request aka Cristiano Ronaldo
+
+                    while (time.ElapsedMilliseconds <= 5000)
+                    {
+                        string inString = serialPort1.ReadExisting();
+                        if (inString == "ACK\n" || inString == "ACK")
+                        {
+                            eventActive = true;
+                            connectingLabel.Text = "Slidey Connected!";
+                            return 1;
+
+                        }
+                    }
+
+                    time.Stop(); time.Reset();
+                    serialPort1.Close();
+                    
+                    return -1;
+                }
+                catch
+                {
+                    return -1;
+                }
+                
+            }
+            return - 1;
+        }
+
+        async Task putDelay(int time)
+        {
+            await Task.Delay(time);
+        }
+
+        public async void findSlidey()
+        {
+            //await putDelay(1000);
+            int connected = 0;
+            
+                foreach (string s in SerialPort.GetPortNames())
+                {
+                    connectingDetail.Text = "Searching in " + s + "...";
+                    if (tryConnect(s) == 1)
+                    {
+                        connectingDetail.Text = "Slidey running in " + s;
+                        connectingLabel.Text = "Slidey connected!";
+                        serialPort1.DataReceived += serialPort1_DataReceived;
+                        connected = 1;
+                        break;
+                    }
+
+                    else
+                    {
+                        connectingDetail.Text = "Slidey not found in " + s + "...";
+                        await putDelay(500);
+
+                }
+
+                }
+
+                //System.Threading.Thread.Sleep(1000);
+            
+            
+
+        }
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         private void atualizaListaCOMs()
         {
-            int i;
+           /* int i;
             bool quantDiferente; //flag para sinalizar que a quantidade de portas mudou
 
             i = 0;
@@ -65,12 +162,12 @@ namespace Slidey
                 comboBox1.Items.Add(s);
             }
             //seleciona a primeira posição da lista
-            comboBox1.SelectedIndex = 0;
+            comboBox1.SelectedIndex = 0;*/
         }
 
         private void connectButton_Click(object sender, EventArgs e)
         {
-            if (serialPort1.IsOpen == false)
+            /*if (serialPort1.IsOpen == false)
             {
                 try
                 {
@@ -104,14 +201,21 @@ namespace Slidey
                     return;
                 }
 
-            }
+            }*/
         }
 
         private void serialPort1_DataReceived(object sender, SerialDataReceivedEventArgs e)
         {
-            rxString = serialPort1.ReadExisting();              //le o dado disponível na serial
-            this.Invoke(new EventHandler(trataDadoRecebido));   //chama outra thread para escrever o dado no text box
+            if(eventActive == true)
+            {
+                rxString = serialPort1.ReadExisting();              //le o dado disponível na serial
+                this.Invoke(new EventHandler(trataDadoRecebido));   //chama outra thread para escrever o dado no text box
+
+            }
         }
+
+
+        
 
         private void trataDadoRecebido(object sender, EventArgs e)
         {
@@ -144,19 +248,27 @@ namespace Slidey
             if (Slider2.currentMode == 1) { comboS2.Text = "Current App"; S2Box.Text = Slider2.modeHelpText[1]; appCombo1.Enabled = false; }
             if (Slider1.currentMode == 2) { comboS2.Text = "Choose App..."; S2Box.Text = Slider2.modeHelpText[2]; appCombo1.Enabled = true; }
 
+            
 
-
+            //this.Shown += new System.EventHandler(this.Form1_Shown);
+            
+            findSlidey();
 
 
 
         }
-        
 
+
+
+        private async void Form1_Shown(object sender, EventArgs e)
+        {
+            
+        }
 
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            atualizaListaCOMs();
+            //atualizaListaCOMs();
 
 
             int value1 = Slider1.getVolume();
@@ -212,7 +324,7 @@ namespace Slidey
             }
 
 
-
+            
             if (Slider1.currentMode == 0) { S1Box.Text = Slider1.modeHelpText[0]; appCombo1.Enabled = false; }
             if (Slider1.currentMode == 1) { S1Box.Text = Slider1.modeHelpText[1]; appCombo1.Enabled = false; }
             if (Slider1.currentMode == 2) { S1Box.Text = Slider1.modeHelpText[2]; appCombo1.Enabled = true; }
@@ -222,7 +334,7 @@ namespace Slidey
 
             if(appCombo1.Enabled == false) { appCombo1.Text = "Unavailable"; }
             if (appCombo2.Enabled == false) { appCombo2.Text = "Unavailable"; }
-
+            
 
 
 
@@ -290,18 +402,26 @@ namespace Slidey
                 {
                     if (value == 1) //if 1st knob
                     {
-                        Slider1.changeVolume(Convert.ToInt32(rxString.Substring(2)));
-                        //set 1st knob
-                        int thing = Convert.ToInt32(rxString.Substring(2));
-                        int pos = VolumeDraw.changeKnobPos(thing);
-                        knob1.Location = new Point(VolumeDraw.knob1posVer, pos);
+                        try
+                        {
+                            Slider1.changeVolume(Convert.ToInt32(rxString.Substring(2)));
+                            //set 1st knob
+                            int thing = Convert.ToInt32(rxString.Substring(2));
+                            int pos = VolumeDraw.changeKnobPos(thing);
+                            knob1.Location = new Point(VolumeDraw.knob1posVer, pos);
+                        }
+                        catch { }
                     }
                     if (value == 2)
                     {
-                        Slider2.changeVolume(Convert.ToInt32(rxString.Substring(2)));
-                        //set 2nd knob
-                        int pos = VolumeDraw.changeKnobPos(Convert.ToInt32(rxString.Substring(2)));
-                        knob2.Location = new Point(VolumeDraw.knob1posVer, pos);
+                        try
+                        {
+                            Slider2.changeVolume(Convert.ToInt32(rxString.Substring(2)));
+                            //set 2nd knob
+                            int pos = VolumeDraw.changeKnobPos(Convert.ToInt32(rxString.Substring(2)));
+                            knob2.Location = new Point(VolumeDraw.knob1posVer, pos);
+                        }
+                        catch { }
 
                     }
                 }
@@ -363,6 +483,11 @@ namespace Slidey
         private void appCombo2_TextChanged(object sender, EventArgs e)
         {
             Slider2.chosenAPP = appCombo2.Text;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            findSlidey();
         }
     }
 }

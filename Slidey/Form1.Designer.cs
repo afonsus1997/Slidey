@@ -32,7 +32,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.metroTabControl1 = new MetroFramework.Controls.MetroTabControl();
             this.Start = new MetroFramework.Controls.MetroTabPage();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.Sliders = new MetroFramework.Controls.MetroTabPage();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.S1Box = new System.Windows.Forms.RichTextBox();
@@ -63,9 +62,12 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.metroStyleManager1 = new MetroFramework.Components.MetroStyleManager(this.components);
             this.serialPort1 = new System.IO.Ports.SerialPort(this.components);
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.connectingLabel = new System.Windows.Forms.Label();
+            this.connectingDetail = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             this.metroTabControl1.SuspendLayout();
             this.Start.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.Sliders.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -78,6 +80,7 @@
             this.About.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.metroStyleManager1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.SuspendLayout();
             // 
             // metroTabControl1
@@ -90,12 +93,15 @@
             this.metroTabControl1.Controls.Add(this.Buttons);
             this.metroTabControl1.Location = new System.Drawing.Point(23, 63);
             this.metroTabControl1.Name = "metroTabControl1";
-            this.metroTabControl1.SelectedIndex = 1;
+            this.metroTabControl1.SelectedIndex = 0;
             this.metroTabControl1.Size = new System.Drawing.Size(665, 373);
             this.metroTabControl1.TabIndex = 0;
             // 
             // Start
             // 
+            this.Start.Controls.Add(this.button1);
+            this.Start.Controls.Add(this.connectingDetail);
+            this.Start.Controls.Add(this.connectingLabel);
             this.Start.Controls.Add(this.pictureBox3);
             this.Start.HorizontalScrollbarBarColor = true;
             this.Start.Location = new System.Drawing.Point(4, 35);
@@ -104,16 +110,6 @@
             this.Start.TabIndex = 0;
             this.Start.Text = "Start";
             this.Start.VerticalScrollbarBarColor = true;
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(21, 24);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(619, 290);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox3.TabIndex = 2;
-            this.pictureBox3.TabStop = false;
             // 
             // Sliders
             // 
@@ -435,7 +431,7 @@
             // 
             // timer1
             // 
-            this.timer1.Interval = 50;
+            this.timer1.Interval = 5;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // metroStyleManager1
@@ -443,6 +439,48 @@
             this.metroStyleManager1.Owner = this;
             this.metroStyleManager1.Style = MetroFramework.MetroColorStyle.Orange;
             this.metroStyleManager1.Theme = MetroFramework.MetroThemeStyle.Light;
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Image = global::Slidey.Properties.Resources.Sliderbkbig;
+            this.pictureBox3.Location = new System.Drawing.Point(16, 13);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(256, 256);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox3.TabIndex = 2;
+            this.pictureBox3.TabStop = false;
+            // 
+            // connectingLabel
+            // 
+            this.connectingLabel.AutoSize = true;
+            this.connectingLabel.BackColor = System.Drawing.SystemColors.Window;
+            this.connectingLabel.Font = new System.Drawing.Font("Segoe UI", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.connectingLabel.Location = new System.Drawing.Point(278, 13);
+            this.connectingLabel.Name = "connectingLabel";
+            this.connectingLabel.Size = new System.Drawing.Size(329, 40);
+            this.connectingLabel.TabIndex = 3;
+            this.connectingLabel.Text = "Looking for your Slidey...";
+            // 
+            // connectingDetail
+            // 
+            this.connectingDetail.AutoSize = true;
+            this.connectingDetail.BackColor = System.Drawing.SystemColors.Window;
+            this.connectingDetail.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.connectingDetail.Location = new System.Drawing.Point(280, 65);
+            this.connectingDetail.Name = "connectingDetail";
+            this.connectingDetail.Size = new System.Drawing.Size(134, 25);
+            this.connectingDetail.TabIndex = 4;
+            this.connectingDetail.Text = "Searching in ...";
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(337, 137);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 5;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // Form1
             // 
@@ -460,7 +498,7 @@
             this.Leave += new System.EventHandler(this.Form1_Leave);
             this.metroTabControl1.ResumeLayout(false);
             this.Start.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            this.Start.PerformLayout();
             this.Sliders.ResumeLayout(false);
             this.Sliders.PerformLayout();
             this.tableLayoutPanel2.ResumeLayout(false);
@@ -477,6 +515,7 @@
             this.About.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.metroStyleManager1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -498,7 +537,6 @@
         private MetroFramework.Controls.MetroTabPage Sliders;
         private MetroFramework.Controls.MetroComboBox comboS1;
         private MetroFramework.Controls.MetroComboBox comboS2;
-        private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.PictureBox knob1;
         private System.Windows.Forms.PictureBox body1;
         private System.Windows.Forms.PictureBox knob2;
@@ -516,6 +554,10 @@
         private System.Windows.Forms.RichTextBox S1Box;
         private MetroFramework.Controls.MetroComboBox appCombo2;
         private MetroFramework.Controls.MetroComboBox appCombo1;
+        private System.Windows.Forms.Label connectingLabel;
+        private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.Label connectingDetail;
+        private System.Windows.Forms.Button button1;
     }
 }
 

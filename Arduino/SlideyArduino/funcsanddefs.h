@@ -10,7 +10,7 @@
 
 #define changeThresh 10
 #define debounce 1
-#define potMillisThresh 10
+#define potMillisThresh 5
 
 int lastPos;
 int cont = 0;
@@ -104,7 +104,7 @@ void setPos(int pos){
 void checkPot() {
 	int potReading = readPot();
 	int currentMillis = millis();
-	if (abs(potReading - lastPos) <= changeThresh && abs(potReading - lastPos) >= debounce && abs(currentMillis - potMillis)>potMillisThresh) {
+	if (abs(potReading - lastPos) <= changeThresh && abs(potReading - lastPos) >= debounce && abs(potMillis - millis()) >= potMillisThresh) {
 		//send new value
 		//String out = String(cont) + " - S1" + String(potReading); cont++;
 		String out = "S1" + String(potReading);

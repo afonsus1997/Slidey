@@ -12,5 +12,4 @@ C:\Users\AfonsoM\AppData\Local\Temp\VMBuilds\SlideyArduino\uno\Debug\SlideyArdui
  C:\Program\ Files\ (x86)\Arduino\hardware\arduino\avr\cores\arduino/Arduino.h \
  C:\Program\ Files\ (x86)\Arduino\hardware\arduino\avr\variants\standard/pins_arduino.h \
  C:\Users\AfonsoM\AppData\Local\Temp\VMBuilds\SlideyArduino\uno\Debug\funcsanddefs.h \
- C:\Users\AfonsoM\AppData\Local\Temp\VMBuilds\SlideyArduino\uno\Debug\modes.h \
- C:\Program\ Files\ (x86)\Microsoft\ Visual\ Studio\2017\Enterprise\Common7\IDE\Extensions\ebyfft1h.qcd\Micro\ Platforms\default\debuggers\VM_DBG/VM_DBG.h
+ C:\Users\AfonsoM\AppData\Local\Temp\VMBuilds\SlideyArduino\uno\Debug\modes.h
