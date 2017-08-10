@@ -118,19 +118,31 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="fader" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\pictures\fader.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="faderbody" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\pictures\faderbody.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Sliderbkbig" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\pictures\Sliderbkbig.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="faderknob" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\pictures\faderknob.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="faderbody" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\pictures\faderbody.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="USB-Plug" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\pictures\USB-Plug.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Slider" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\pictures\Slider.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Sliderbkbig" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\pictures\Sliderbkbig.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="fader" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\pictures\fader.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Search_1-WF" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\pictures\Search_1-WF.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Confused_01" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\pictures\Confused-01.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="USB_Plug2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\pictures\USB-Plug2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

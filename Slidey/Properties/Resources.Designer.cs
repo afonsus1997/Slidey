@@ -63,6 +63,16 @@ namespace Slidey.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Confused_01 {
+            get {
+                object obj = ResourceManager.GetObject("Confused_01", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap fader {
             get {
                 object obj = ResourceManager.GetObject("fader", resourceCulture);
@@ -93,6 +103,16 @@ namespace Slidey.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Search_1_WF {
+            get {
+                object obj = ResourceManager.GetObject("Search_1-WF", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Slider {
             get {
                 object obj = ResourceManager.GetObject("Slider", resourceCulture);
@@ -106,6 +126,26 @@ namespace Slidey.Properties {
         internal static System.Drawing.Bitmap Sliderbkbig {
             get {
                 object obj = ResourceManager.GetObject("Sliderbkbig", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap USB_Plug {
+            get {
+                object obj = ResourceManager.GetObject("USB-Plug", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap USB_Plug2 {
+            get {
+                object obj = ResourceManager.GetObject("USB_Plug2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

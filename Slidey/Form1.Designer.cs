@@ -32,10 +32,10 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.metroTabControl1 = new MetroFramework.Controls.MetroTabControl();
             this.Start = new MetroFramework.Controls.MetroTabPage();
+            this.serialLabel = new MetroFramework.Controls.MetroLabel();
             this.button1 = new System.Windows.Forms.Button();
             this.connectingDetail = new System.Windows.Forms.Label();
             this.connectingLabel = new System.Windows.Forms.Label();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.Sliders = new MetroFramework.Controls.MetroTabPage();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.S1Box = new System.Windows.Forms.RichTextBox();
@@ -47,37 +47,37 @@
             this.appCombo2 = new MetroFramework.Controls.MetroComboBox();
             this.appCombo1 = new MetroFramework.Controls.MetroComboBox();
             this.comboS1 = new MetroFramework.Controls.MetroComboBox();
-            this.knob2 = new System.Windows.Forms.PictureBox();
-            this.knob1 = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.body1 = new System.Windows.Forms.PictureBox();
             this.Serial = new MetroFramework.Controls.MetroTabPage();
-            this.serialLabel = new MetroFramework.Controls.MetroLabel();
             this.connectButton = new MetroFramework.Controls.MetroButton();
             this.comboBox1 = new MetroFramework.Controls.MetroComboBox();
             this.About = new MetroFramework.Controls.MetroTabPage();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.Buttons = new MetroFramework.Controls.MetroTabPage();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.metroStyleManager1 = new MetroFramework.Components.MetroStyleManager(this.components);
             this.serialPort1 = new System.IO.Ports.SerialPort(this.components);
+            this.connectPicture = new System.Windows.Forms.PictureBox();
+            this.knob2 = new System.Windows.Forms.PictureBox();
+            this.knob1 = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.body1 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.metroTabControl1.SuspendLayout();
             this.Start.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.Sliders.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
+            this.Serial.SuspendLayout();
+            this.About.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.metroStyleManager1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.connectPicture)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.knob2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.knob1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.body1)).BeginInit();
-            this.Serial.SuspendLayout();
-            this.About.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.metroStyleManager1)).BeginInit();
             this.SuspendLayout();
             // 
             // metroTabControl1
@@ -99,7 +99,7 @@
             this.Start.Controls.Add(this.button1);
             this.Start.Controls.Add(this.connectingDetail);
             this.Start.Controls.Add(this.connectingLabel);
-            this.Start.Controls.Add(this.pictureBox3);
+            this.Start.Controls.Add(this.connectPicture);
             this.Start.HorizontalScrollbarBarColor = true;
             this.Start.Location = new System.Drawing.Point(4, 35);
             this.Start.Name = "Start";
@@ -108,9 +108,18 @@
             this.Start.Text = "Start";
             this.Start.VerticalScrollbarBarColor = true;
             // 
+            // serialLabel
+            // 
+            this.serialLabel.AutoSize = true;
+            this.serialLabel.Location = new System.Drawing.Point(297, 192);
+            this.serialLabel.Name = "serialLabel";
+            this.serialLabel.Size = new System.Drawing.Size(55, 19);
+            this.serialLabel.TabIndex = 4;
+            this.serialLabel.Text = "rx serial";
+            // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(285, 104);
+            this.button1.Location = new System.Drawing.Point(297, 166);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 5;
@@ -123,7 +132,7 @@
             this.connectingDetail.AutoSize = true;
             this.connectingDetail.BackColor = System.Drawing.SystemColors.Window;
             this.connectingDetail.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.connectingDetail.Location = new System.Drawing.Point(280, 65);
+            this.connectingDetail.Location = new System.Drawing.Point(292, 63);
             this.connectingDetail.Name = "connectingDetail";
             this.connectingDetail.Size = new System.Drawing.Size(134, 25);
             this.connectingDetail.TabIndex = 4;
@@ -134,21 +143,11 @@
             this.connectingLabel.AutoSize = true;
             this.connectingLabel.BackColor = System.Drawing.SystemColors.Window;
             this.connectingLabel.Font = new System.Drawing.Font("Segoe UI", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.connectingLabel.Location = new System.Drawing.Point(278, 13);
+            this.connectingLabel.Location = new System.Drawing.Point(290, 23);
             this.connectingLabel.Name = "connectingLabel";
             this.connectingLabel.Size = new System.Drawing.Size(329, 40);
             this.connectingLabel.TabIndex = 3;
             this.connectingLabel.Text = "Looking for your Slidey...";
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.Image = global::Slidey.Properties.Resources.Sliderbkbig;
-            this.pictureBox3.Location = new System.Drawing.Point(16, 13);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(256, 256);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pictureBox3.TabIndex = 2;
-            this.pictureBox3.TabStop = false;
             // 
             // Sliders
             // 
@@ -300,46 +299,6 @@
             this.comboS1.TabIndex = 2;
             this.comboS1.SelectedIndexChanged += new System.EventHandler(this.comboS1_SelectedIndexChanged);
             // 
-            // knob2
-            // 
-            this.knob2.Image = global::Slidey.Properties.Resources.faderknob;
-            this.knob2.Location = new System.Drawing.Point(353, 234);
-            this.knob2.Name = "knob2";
-            this.knob2.Size = new System.Drawing.Size(51, 80);
-            this.knob2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.knob2.TabIndex = 4;
-            this.knob2.TabStop = false;
-            // 
-            // knob1
-            // 
-            this.knob1.Image = global::Slidey.Properties.Resources.faderknob;
-            this.knob1.Location = new System.Drawing.Point(248, 234);
-            this.knob1.Name = "knob1";
-            this.knob1.Size = new System.Drawing.Size(51, 80);
-            this.knob1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.knob1.TabIndex = 4;
-            this.knob1.TabStop = false;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::Slidey.Properties.Resources.faderbody;
-            this.pictureBox1.Location = new System.Drawing.Point(325, 22);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(100, 309);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 3;
-            this.pictureBox1.TabStop = false;
-            // 
-            // body1
-            // 
-            this.body1.Image = global::Slidey.Properties.Resources.faderbody;
-            this.body1.Location = new System.Drawing.Point(219, 22);
-            this.body1.Name = "body1";
-            this.body1.Size = new System.Drawing.Size(100, 309);
-            this.body1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.body1.TabIndex = 3;
-            this.body1.TabStop = false;
-            // 
             // Serial
             // 
             this.Serial.Controls.Add(this.connectButton);
@@ -351,15 +310,6 @@
             this.Serial.TabIndex = 1;
             this.Serial.Text = "Serial";
             this.Serial.VerticalScrollbarBarColor = true;
-            // 
-            // serialLabel
-            // 
-            this.serialLabel.AutoSize = true;
-            this.serialLabel.Location = new System.Drawing.Point(285, 219);
-            this.serialLabel.Name = "serialLabel";
-            this.serialLabel.Size = new System.Drawing.Size(55, 19);
-            this.serialLabel.TabIndex = 4;
-            this.serialLabel.Text = "rx serial";
             // 
             // connectButton
             // 
@@ -426,16 +376,6 @@
             this.label3.TabIndex = 3;
             this.label3.Text = "Slidey";
             // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = global::Slidey.Properties.Resources.Sliderbkbig;
-            this.pictureBox2.Location = new System.Drawing.Point(3, 15);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(300, 300);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 2;
-            this.pictureBox2.TabStop = false;
-            // 
             // Buttons
             // 
             this.Buttons.HorizontalScrollbarBarColor = true;
@@ -461,6 +401,66 @@
             // 
             this.serialPort1.ReadBufferSize = 8192;
             // 
+            // connectPicture
+            // 
+            this.connectPicture.Image = global::Slidey.Properties.Resources.Search_1_WF;
+            this.connectPicture.Location = new System.Drawing.Point(9, 23);
+            this.connectPicture.Name = "connectPicture";
+            this.connectPicture.Size = new System.Drawing.Size(265, 265);
+            this.connectPicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.connectPicture.TabIndex = 2;
+            this.connectPicture.TabStop = false;
+            // 
+            // knob2
+            // 
+            this.knob2.Image = global::Slidey.Properties.Resources.faderknob;
+            this.knob2.Location = new System.Drawing.Point(353, 234);
+            this.knob2.Name = "knob2";
+            this.knob2.Size = new System.Drawing.Size(51, 80);
+            this.knob2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.knob2.TabIndex = 4;
+            this.knob2.TabStop = false;
+            // 
+            // knob1
+            // 
+            this.knob1.Image = global::Slidey.Properties.Resources.faderknob;
+            this.knob1.Location = new System.Drawing.Point(248, 234);
+            this.knob1.Name = "knob1";
+            this.knob1.Size = new System.Drawing.Size(51, 80);
+            this.knob1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.knob1.TabIndex = 4;
+            this.knob1.TabStop = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::Slidey.Properties.Resources.faderbody;
+            this.pictureBox1.Location = new System.Drawing.Point(325, 22);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(100, 309);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 3;
+            this.pictureBox1.TabStop = false;
+            // 
+            // body1
+            // 
+            this.body1.Image = global::Slidey.Properties.Resources.faderbody;
+            this.body1.Location = new System.Drawing.Point(219, 22);
+            this.body1.Name = "body1";
+            this.body1.Size = new System.Drawing.Size(100, 309);
+            this.body1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.body1.TabIndex = 3;
+            this.body1.TabStop = false;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = global::Slidey.Properties.Resources.Sliderbkbig;
+            this.pictureBox2.Location = new System.Drawing.Point(3, 15);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(300, 300);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 2;
+            this.pictureBox2.TabStop = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -478,20 +478,20 @@
             this.metroTabControl1.ResumeLayout(false);
             this.Start.ResumeLayout(false);
             this.Start.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.Sliders.ResumeLayout(false);
             this.Sliders.PerformLayout();
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
+            this.Serial.ResumeLayout(false);
+            this.About.ResumeLayout(false);
+            this.About.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.metroStyleManager1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.connectPicture)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.knob2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.knob1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.body1)).EndInit();
-            this.Serial.ResumeLayout(false);
-            this.About.ResumeLayout(false);
-            this.About.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.metroStyleManager1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -529,7 +529,7 @@
         private MetroFramework.Controls.MetroComboBox appCombo2;
         private MetroFramework.Controls.MetroComboBox appCombo1;
         private System.Windows.Forms.Label connectingLabel;
-        private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.PictureBox connectPicture;
         private System.Windows.Forms.Label connectingDetail;
         private System.Windows.Forms.Button button1;
     }

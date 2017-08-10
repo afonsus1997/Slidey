@@ -77,10 +77,16 @@ namespace Slidey
 
         public async void findSlidey()
         {
-            await putDelay(500);
-            int connected = 0;
             
-                foreach (string s in SerialPort.GetPortNames())
+            int connected = 0;
+            connectPicture.Image = Resources.Search_1_WF;
+
+            connectingLabel.Text = "Looking for your Slidey...";
+            connectingDetail.Text = "Searching in " +  "...";
+
+            await putDelay(500);
+
+            foreach (string s in SerialPort.GetPortNames())
                 {
 
                 
@@ -88,7 +94,8 @@ namespace Slidey
                     putDelay(250);
                     if (tryConnect(s) == 1)
                     {
-                        connectingDetail.Text = "Slidey running in " + s;
+                        connectPicture.Image = Resources.USB_Plug2;
+                        connectingDetail.Text = "Slidey running on " + s;
                         connectingLabel.Text = "Slidey connected!";
                         
                         connected = 1;
@@ -97,6 +104,7 @@ namespace Slidey
 
                     else
                     {
+                        connectingLabel.Text = "Looking for your Slidey...";
                         connectingDetail.Text = "Slidey not found in " + s + "...";
                         await putDelay(250);
 
@@ -106,7 +114,9 @@ namespace Slidey
 
             //System.Threading.Thread.Sleep(1000);
 
-            connectingDetail.Text = "Slidey not found :(";
+            connectPicture.Image = Resources.Confused_01;
+            connectingDetail.Text = "Slidey not found on any of the COM ports...";
+            connectingLabel.Text = "Slidey not found";
             await putDelay(250);
 
 

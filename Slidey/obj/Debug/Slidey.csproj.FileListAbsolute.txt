@@ -30,3 +30,9 @@ C:\Users\AfonsoM\Desktop\Github\Slidey\Slidey\obj\Debug\Slidey.csproj.GenerateRe
 C:\Users\AfonsoM\Desktop\Github\Slidey\Slidey\obj\Debug\Slidey.exe
 C:\Users\AfonsoM\Desktop\Github\Slidey\Slidey\obj\Debug\Slidey.pdb
 C:\Users\AfonsoM\Desktop\Github\Slidey\Slidey\obj\Debug\Slidey.csprojResolveAssemblyReference.cache
+C:\Users\AfonsoM\Desktop\Github\Slidey\Slidey\bin\Debug\AeroWizard.dll
+C:\Users\AfonsoM\Desktop\Github\Slidey\Slidey\bin\Debug\MahApps.Metro.dll
+C:\Users\AfonsoM\Desktop\Github\Slidey\Slidey\bin\Debug\System.Windows.Interactivity.dll
+C:\Users\AfonsoM\Desktop\Github\Slidey\Slidey\bin\Debug\AeroWizard.xml
+C:\Users\AfonsoM\Desktop\Github\Slidey\Slidey\bin\Debug\MahApps.Metro.pdb
+C:\Users\AfonsoM\Desktop\Github\Slidey\Slidey\bin\Debug\MahApps.Metro.xml
