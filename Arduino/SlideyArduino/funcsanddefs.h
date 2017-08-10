@@ -17,6 +17,7 @@ int cont = 0;
 int potMillis = 0;
 int interReading;
 
+int connected = 0;
 
 void sendData(String out) {
 		Serial.print(out);
@@ -102,14 +103,17 @@ void setPos(int pos){
 
 
 void checkPot() {
-	int potReading = readPot();
-	int currentMillis = millis();
-	if (abs(potReading - lastPos) <= changeThresh && abs(potReading - lastPos) >= debounce && abs(potMillis - millis()) >= potMillisThresh) {
-		//send new value
-		//String out = String(cont) + " - S1" + String(potReading); cont++;
-		String out = "S1" + String(potReading);
-		sendData(out);
+	if (connected == 1) {
+		int potReading = readPot();
+		int currentMillis = millis();
+		if (abs(potReading - lastPos) <= changeThresh && abs(potReading - lastPos) >= debounce && abs(potMillis - millis()) >= potMillisThresh) {
+			//send new value
+			//String out = String(cont) + " - S1" + String(potReading); cont++;
+			String out = "S1" + String(potReading);
+			sendData(out);
+		}
+		lastPos = potReading;
+		potMillis = millis();
 	}
-	lastPos = potReading;
-	potMillis = millis();
+	
 }

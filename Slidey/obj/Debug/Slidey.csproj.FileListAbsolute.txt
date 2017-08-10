@@ -24,9 +24,9 @@ C:\Users\AfonsoM\Desktop\Github\Slidey\Slidey\bin\Debug\MetroFramework.dll
 C:\Users\AfonsoM\Desktop\Github\Slidey\Slidey\bin\Debug\MetroFramework.Fonts.dll
 C:\Users\AfonsoM\Desktop\Github\Slidey\Slidey\bin\Debug\NAudio.dll
 C:\Users\AfonsoM\Desktop\Github\Slidey\Slidey\bin\Debug\NAudio.xml
-C:\Users\AfonsoM\Desktop\Github\Slidey\Slidey\obj\Debug\Slidey.csprojResolveAssemblyReference.cache
 C:\Users\AfonsoM\Desktop\Github\Slidey\Slidey\obj\Debug\Slidey.Form1.resources
 C:\Users\AfonsoM\Desktop\Github\Slidey\Slidey\obj\Debug\Slidey.Properties.Resources.resources
 C:\Users\AfonsoM\Desktop\Github\Slidey\Slidey\obj\Debug\Slidey.csproj.GenerateResource.Cache
 C:\Users\AfonsoM\Desktop\Github\Slidey\Slidey\obj\Debug\Slidey.exe
 C:\Users\AfonsoM\Desktop\Github\Slidey\Slidey\obj\Debug\Slidey.pdb
+C:\Users\AfonsoM\Desktop\Github\Slidey\Slidey\obj\Debug\Slidey.csprojResolveAssemblyReference.cache

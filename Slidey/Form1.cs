@@ -39,12 +39,14 @@ namespace Slidey
 
                     time.Start();
 
-                    serialPort1.Write("CR"); //Connect request aka Cristiano Ronaldo
+                    //Connect request aka Cristiano Ronaldo
 
+                    serialPort1.Write("CR");
                     while (time.ElapsedMilliseconds <= 5000)
                     {
-                        string inString = serialPort1.ReadExisting();
-                        if (inString == "ACK\n" || inString == "ACK")
+                        
+                        //string inString = serialPort1.ReadExisting();
+                        if (rxString == "ACK\n" || rxString == "ACK")
                         {
                             eventActive = true;
                             connectingLabel.Text = "Slidey Connected!";
@@ -53,6 +55,7 @@ namespace Slidey
                         }
                     }
 
+                    putDelay(250);
                     time.Stop(); time.Reset();
                     serialPort1.Close();
                     
@@ -74,55 +77,41 @@ namespace Slidey
 
         public async void findSlidey()
         {
-            //await putDelay(1000);
+            await putDelay(500);
             int connected = 0;
             
                 foreach (string s in SerialPort.GetPortNames())
                 {
+
+                
                     connectingDetail.Text = "Searching in " + s + "...";
+                    putDelay(250);
                     if (tryConnect(s) == 1)
                     {
                         connectingDetail.Text = "Slidey running in " + s;
                         connectingLabel.Text = "Slidey connected!";
-                        serialPort1.DataReceived += serialPort1_DataReceived;
+                        
                         connected = 1;
-                        break;
+                        return; 
                     }
 
                     else
                     {
                         connectingDetail.Text = "Slidey not found in " + s + "...";
-                        await putDelay(500);
+                        await putDelay(250);
 
                 }
 
                 }
 
-                //System.Threading.Thread.Sleep(1000);
-            
-            
+            //System.Threading.Thread.Sleep(1000);
+
+            connectingDetail.Text = "Slidey not found :(";
+            await putDelay(250);
+
 
         }
         
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         private void atualizaListaCOMs()
         {
            /* int i;
@@ -212,6 +201,13 @@ namespace Slidey
                 this.Invoke(new EventHandler(trataDadoRecebido));   //chama outra thread para escrever o dado no text box
 
             }
+
+            else
+            {
+                rxString = serialPort1.ReadExisting();
+                Console.WriteLine(rxString);
+
+            }
         }
 
 
@@ -248,12 +244,11 @@ namespace Slidey
             if (Slider2.currentMode == 1) { comboS2.Text = "Current App"; S2Box.Text = Slider2.modeHelpText[1]; appCombo1.Enabled = false; }
             if (Slider1.currentMode == 2) { comboS2.Text = "Choose App..."; S2Box.Text = Slider2.modeHelpText[2]; appCombo1.Enabled = true; }
 
-            
+            serialPort1.DataReceived += serialPort1_DataReceived;
 
             //this.Shown += new System.EventHandler(this.Form1_Shown);
-            
+            putDelay(3000);
             findSlidey();
-
 
 
         }
@@ -263,6 +258,7 @@ namespace Slidey
         private async void Form1_Shown(object sender, EventArgs e)
         {
             
+
         }
 
 
