@@ -22,10 +22,11 @@ namespace Slidey
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             
+
+
             Form Form1 = new Form1();
             
 
-            
             Application.Run(Form1);
         }
     }
