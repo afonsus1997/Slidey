@@ -301,7 +301,7 @@ namespace Slidey
                 }
                 Console.WriteLine("Sent " + send);
                 //Convert.ToInt32(send);
-                if (serialPort1.IsOpen) { serialPort1.Write(send+'\n'); }
+                if (serialPort1.IsOpen) { serialPort1.Write("S1" + send + '\n'); }
                 
             }
 
