@@ -207,8 +207,8 @@ namespace Slidey
             if(eventActive == true)
             {
                 rxString = serialPort1.ReadLine();              //le o dado disponível na serial
-                Console.WriteLine(rxString);
-                //serialPort1.DiscardInBuffer();
+                Console.WriteLine("Recieved: " + rxString);
+                serialPort1.DiscardInBuffer();
                 this.Invoke(new EventHandler(trataDadoRecebido));   //chama outra thread para escrever o dado no text box
 
             }
@@ -216,7 +216,7 @@ namespace Slidey
             else
             {
                 rxString = serialPort1.ReadLine();
-                Console.WriteLine(rxString);
+                Console.WriteLine("Recieved: " + rxString);
 
             }
         }
@@ -241,7 +241,7 @@ namespace Slidey
             InitializeComponent();
             this.StyleManager = metroStyleManager1;
             serialPort1.NewLine = "\n";
-            timer1.Start();
+            //timer1.Start();
             body1.Location = new Point(VolumeDraw.Hpos1, VolumeDraw.Vpos1);
             MaximizeBox = false;
             Slider1.currentMode = Properties.Settings.Default.slider1Status;
@@ -261,6 +261,7 @@ namespace Slidey
             //this.Shown += new System.EventHandler(this.Form1_Shown);
             putDelay(3000);
             findSlidey();
+            timer1.Start();
 
 
         }
@@ -301,7 +302,7 @@ namespace Slidey
                 {
                     send = Slider1.currentValue.ToString();
                 }
-                Console.WriteLine("Sent " + send);
+                Console.WriteLine("Sent: " + send);
                 //Convert.ToInt32(send);
                 if (serialPort1.IsOpen) { serialPort1.Write("S1" + send + '\n'); }
                 
@@ -325,7 +326,7 @@ namespace Slidey
                 {
                     send = Slider2.currentValue.ToString();
                 }
-                Console.WriteLine("Sent " + send);
+                Console.WriteLine("Sent: " + send);
                 //Convert.ToInt32(send);
                 //if (serialPort1.IsOpen) { serialPort1.Write(send + '\n'); }
 
@@ -502,9 +503,9 @@ namespace Slidey
         {
             if(FormWindowState.Minimized == this.WindowState)
             {
-                notifyIcon1.Visible = true;
-                notifyIcon1.ShowBalloonTip(1000);
                 this.Hide();
+                notifyIcon1.Visible = true;
+                notifyIcon1.ShowBalloonTip(5);
             }
 
             else if(FormWindowState.Normal == this.WindowState)
