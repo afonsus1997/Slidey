@@ -5,7 +5,7 @@ void serialMode(){
 		//Serial.println(in);
 		if (in == "CR" || in == "CR\n") {
 			delay(10);
-			Serial.print("ACK");
+			Serial.print("ACK\n");
 			//sendData("ACK");
 
 			connected = 1;

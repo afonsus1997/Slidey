@@ -64,6 +64,7 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.metroStyleManager1 = new MetroFramework.Components.MetroStyleManager(this.components);
             this.serialPort1 = new System.IO.Ports.SerialPort(this.components);
+            this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
             this.metroTabControl1.SuspendLayout();
             this.Start.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.connectPicture)).BeginInit();
@@ -151,7 +152,7 @@
             // 
             // connectPicture
             // 
-            this.connectPicture.Image = global::Slidey.Properties.Resources.Search_1_WF;
+            this.connectPicture.Image = global::Slidey.Properties.Resources.Search_1_WF2;
             this.connectPicture.Location = new System.Drawing.Point(9, 23);
             this.connectPicture.Name = "connectPicture";
             this.connectPicture.Size = new System.Drawing.Size(265, 265);
@@ -461,6 +462,15 @@
             // 
             this.serialPort1.ReadBufferSize = 1024;
             // 
+            // notifyIcon1
+            // 
+            this.notifyIcon1.BalloonTipIcon = System.Windows.Forms.ToolTipIcon.Info;
+            this.notifyIcon1.BalloonTipText = "Slidey is minimized to the system tray";
+            this.notifyIcon1.BalloonTipTitle = "Slidey";
+            this.notifyIcon1.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIcon1.Icon")));
+            this.notifyIcon1.Text = "Slidey - Running";
+            this.notifyIcon1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.notifyIcon1_MouseDoubleClick);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -475,6 +485,7 @@
             this.Deactivate += new System.EventHandler(this.Form1_Deactivate);
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Leave += new System.EventHandler(this.Form1_Leave);
+            this.Resize += new System.EventHandler(this.Form1_Resize);
             this.metroTabControl1.ResumeLayout(false);
             this.Start.ResumeLayout(false);
             this.Start.PerformLayout();
@@ -532,6 +543,7 @@
         private System.Windows.Forms.PictureBox connectPicture;
         private System.Windows.Forms.Label connectingDetail;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.NotifyIcon notifyIcon1;
     }
 }
 

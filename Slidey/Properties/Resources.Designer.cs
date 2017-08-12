@@ -73,6 +73,16 @@ namespace Slidey.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Confused_01neg {
+            get {
+                object obj = ResourceManager.GetObject("Confused_01neg", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap fader {
             get {
                 object obj = ResourceManager.GetObject("fader", resourceCulture);
@@ -113,6 +123,16 @@ namespace Slidey.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Search_1_WF2 {
+            get {
+                object obj = ResourceManager.GetObject("Search_1-WF2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Slider {
             get {
                 object obj = ResourceManager.GetObject("Slider", resourceCulture);
@@ -146,6 +166,16 @@ namespace Slidey.Properties {
         internal static System.Drawing.Bitmap USB_Plug2 {
             get {
                 object obj = ResourceManager.GetObject("USB_Plug2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap USB_Plug2neg {
+            get {
+                object obj = ResourceManager.GetObject("USB_Plug2neg", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

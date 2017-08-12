@@ -10,7 +10,7 @@
 
 #define changeThresh 10
 #define debounce 1
-#define potMillisThresh 5
+#define potMillisThresh 100
 
 int lastPos;
 int cont = 0;
@@ -106,14 +106,17 @@ void checkPot() {
 	if (connected == 1) {
 		int potReading = readPot();
 		int currentMillis = millis();
-		if (abs(potReading - lastPos) <= changeThresh && abs(potReading - lastPos) >= debounce && abs(potMillis - millis()) >= potMillisThresh) {
+		//Serial.println(millis() - potMillis);
+		if (abs(potReading - lastPos) <= changeThresh && abs(potReading - lastPos) >= debounce && (millis() - potMillis) >= potMillisThresh) {
 			//send new value
 			//String out = String(cont) + " - S1" + String(potReading); cont++;
-			String out = "S1" + String(potReading);
+			String out = "S1" + String(potReading) + '\n';
 			sendData(out);
+			lastPos = potReading;
+			potMillis = millis();
 		}
-		lastPos = potReading;
-		potMillis = millis();
+		//lastPos = potReading;
+		//potMillis = millis();
 	}
 	
 }

@@ -20,7 +20,6 @@ namespace Slidey
     {
         Slider Slider1 = new Slider("S1");
         Slider Slider2 = new Slider("S2");
-
         bool eventActive = false;
 
         #region SERIAL COMM
@@ -79,7 +78,7 @@ namespace Slidey
         {
             
             int connected = 0;
-            connectPicture.Image = Resources.Search_1_WF;
+            connectPicture.Image = Resources.Search_1_WF2;
 
             connectingLabel.Text = "Looking for your Slidey...";
             connectingDetail.Text = "Searching in " +  "...";
@@ -94,7 +93,7 @@ namespace Slidey
                     putDelay(250);
                     if (tryConnect(s) == 1)
                     {
-                        connectPicture.Image = Resources.USB_Plug2;
+                        connectPicture.Image = Resources.USB_Plug2neg;
                         connectingDetail.Text = "Slidey running on " + s;
                         connectingLabel.Text = "Slidey connected!";
                         
@@ -114,7 +113,7 @@ namespace Slidey
 
             //System.Threading.Thread.Sleep(1000);
 
-            connectPicture.Image = Resources.Confused_01;
+            connectPicture.Image = Resources.Confused_01neg;
             connectingDetail.Text = "Slidey not found on any of the COM ports...";
             connectingLabel.Text = "Slidey not found";
             await putDelay(250);
@@ -207,14 +206,16 @@ namespace Slidey
         {
             if(eventActive == true)
             {
-                rxString = serialPort1.ReadExisting();              //le o dado disponível na serial
+                rxString = serialPort1.ReadLine();              //le o dado disponível na serial
+                Console.WriteLine(rxString);
+                //serialPort1.DiscardInBuffer();
                 this.Invoke(new EventHandler(trataDadoRecebido));   //chama outra thread para escrever o dado no text box
 
             }
 
             else
             {
-                rxString = serialPort1.ReadExisting();
+                rxString = serialPort1.ReadLine();
                 Console.WriteLine(rxString);
 
             }
@@ -239,6 +240,7 @@ namespace Slidey
         {
             InitializeComponent();
             this.StyleManager = metroStyleManager1;
+            serialPort1.NewLine = "\n";
             timer1.Start();
             body1.Location = new Point(VolumeDraw.Hpos1, VolumeDraw.Vpos1);
             MaximizeBox = false;
@@ -494,6 +496,27 @@ namespace Slidey
         private void button1_Click(object sender, EventArgs e)
         {
             findSlidey();
+        }
+
+        private void Form1_Resize(object sender, EventArgs e)
+        {
+            if(FormWindowState.Minimized == this.WindowState)
+            {
+                notifyIcon1.Visible = true;
+                notifyIcon1.ShowBalloonTip(1000);
+                this.Hide();
+            }
+
+            else if(FormWindowState.Normal == this.WindowState)
+            {
+                notifyIcon1.Visible = false;
+            }
+        }
+
+        private void notifyIcon1_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            this.Show();
+            this.Focus();
         }
     }
 }
